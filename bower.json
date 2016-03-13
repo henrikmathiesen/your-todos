@@ -1,0 +1,16 @@
+{
+  "name": "yourTodos",
+  "version": "0.0.0",
+  "homepage": "https://github.com/henrikmathiesen/yourTodos",
+  "authors": [
+    "Henrik <henrik_mathiesen@hotmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

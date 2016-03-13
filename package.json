@@ -1,0 +1,22 @@
+{
+  "name": "yourtodos",
+  "version": "1.0.0",
+  "description": "A todo list app with Express and localDB, built with Angular and small parts of bootstrap",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henrikmathiesen/yourTodos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/henrikmathiesen/yourTodos/issues"
+  },
+  "homepage": "https://github.com/henrikmathiesen/yourTodos#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
