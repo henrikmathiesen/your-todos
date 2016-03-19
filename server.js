@@ -67,7 +67,33 @@ app.post('/api/todo', jsonParser, function (req, res)  {
 });
 
 app.put('/api/todo/:id', jsonParser, function (req, res) {
+    var id = parseInt(req.params.id);
+    var updatedTodo = req.body;
+    var todo = null;
     
+    for (var index = 0; index < todos.length; index++) {
+        if(id === todos[index].id) {
+            console.log("found todo");
+            todos[index] = updatedTodo;
+            break;
+        }
+    }
+    
+    res.end();
+});
+
+app.delete('/api/todo/:id', function (req, res) {
+   var id = parseInt(req.params.id);
+   var todo = null;
+   
+   for (var index = 0; index < todos.length; index++) {
+        if(id === todos[index].id) {
+            todos.splice(index, 1);
+            break;
+        }
+    }
+   
+   res.end(); 
 });
 
 app.listen(1338);
