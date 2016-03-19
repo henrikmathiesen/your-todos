@@ -5,7 +5,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 
-var jsonParser = bodyParser.json()
+var jsonParser = bodyParser.json();
 
 
 app.get('/', function (req, res) {
@@ -17,19 +17,19 @@ var todos = [
     {
         id: 0,
         text: "My first todo",
-        date: new Date(2016, 02, 16, 08, 00),
+        date: new Date(2016, 02, 16, 08, 0),
         label: "Work"
     },
     {
         id: 1,
         text: "My second todo",
-        date: new Date(2016, 02, 17, 09, 00),
+        date: new Date(2016, 02, 17, 09, 0),
         label: "Project"
     },
     {
         id: 2,
         text: "My third todo",
-        date: new Date(2016, 02, 18, 13, 00),
+        date: new Date(2016, 02, 18, 13, 0),
         label: "Recreation"
     }
 ];
@@ -68,6 +68,6 @@ app.post('/api/todo', jsonParser, function (req, res)  {
 
 app.put('/api/todo/:id', jsonParser, function (req, res) {
     
-})
+});
 
 app.listen(1338);
