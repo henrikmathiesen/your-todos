@@ -31,4 +31,4 @@ gulp.task('server', ['js-server']);
 
 gulp.task('watch', ['server'], function () {
     gulp.watch(jsServerSrc, ['js-server']);    
-})
+});

@@ -1,5 +1,5 @@
 {
   "undef": true,
   "unused": false,
-  "predef": [ "angular", "console", "require" ]
+  "predef": [ "angular", "console", "require", "module" ]
 }
