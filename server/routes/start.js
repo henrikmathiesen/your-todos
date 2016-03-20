@@ -4,7 +4,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function (req, res) {
-    res.write("start page");
+    res.sendFile("index.html");
     res.end();
 });
 
