@@ -1,9 +1,16 @@
 /// <reference path="./typings/tsd.d.ts" />
 
 var gulp = require('gulp');
+var argv = require('yargs').argv;
 
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
+
+//
+// Toggle production / debug builds
+
+var isProduction = argv.prod ? true : false;
+var resetInject = argv.resetinject ? true : false;
 
 //
 // Sources
