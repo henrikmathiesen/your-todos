@@ -8,8 +8,8 @@ var routesApi = require('./server/routes/api');
 
 var db = require('./server/db');
 
-app.use(express.static(__dirname + '/server/views/start'));
-app.use('/', express.static(__dirname + '/app/bld'));
+app.use(express.static(__dirname + '/Views/start'));
+app.use('/bld', express.static(__dirname + '/bld'));
 
 db.instance.on('load', function () {
     app.use(routesStart);
