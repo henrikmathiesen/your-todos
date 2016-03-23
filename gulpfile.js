@@ -8,13 +8,19 @@ var del = require('del');
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 
-var sourceMaps = require('gulp-sourcemaps');
-var rev = require('gulp-rev');
-var inject = require('gulp-inject');
+var concatJs = require('gulp-concat');
+var ngAnnotate = require('gulp-ng-annotate');
+var templateCache = require('gulp-angular-templatecache');
+var stripDebug = require('gulp-strip-debug');
+var uglifyJs = require('gulp-uglify');
 
 var less = require('gulp-less');
 var autoprefix = require('gulp-autoprefixer');
 var minifyCss = require('gulp-minify-css');
+
+var sourceMaps = require('gulp-sourcemaps');
+var rev = require('gulp-rev');
+var inject = require('gulp-inject');
 
 //
 // Toggle production / debug builds
