@@ -2,9 +2,19 @@
 
 var gulp = require('gulp');
 var argv = require('yargs').argv;
+var gulpif = require('gulp-if');
+var del = require('del');
 
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
+
+var sourceMaps = require('gulp-sourcemaps');
+var rev = require('gulp-rev');
+var inject = require('gulp-inject');
+
+var less = require('gulp-less');
+var autoprefix = require('gulp-autoprefixer');
+var minifyCss = require('gulp-minify-css');
 
 //
 // Toggle production / debug builds
