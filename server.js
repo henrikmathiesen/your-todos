@@ -9,6 +9,7 @@ var routesApi = require('./server/routes/api');
 var db = require('./server/db');
 
 app.use(express.static(__dirname + '/Views/start'));
+app.use('/bower_components/font-awesome/fonts', express.static(__dirname + '/bower_components/font-awesome/fonts'));
 app.use('/bld', express.static(__dirname + '/bld'));
 
 db.instance.on('load', function () {

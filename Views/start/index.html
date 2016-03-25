@@ -7,10 +7,12 @@
     <!-- TODO: fav icons -->
     <title>Your Todos</title>
     <meta name="description" content="Your Todos">
-    <link rel="stylesheet" href="bld/test.css">
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/bld/app.css">
+    <!-- endinject -->
 </head>
 
-<body>
+<body ng-app="main" ng-controller="main">
     <h1>Your Todos</h1>
 
     <ul>
@@ -22,8 +24,7 @@
 
     <div>
         <div>Testing Font Awesome</div>
-        <span class="fa fa-anchor"></span>
-        <span class="fa fa-facebook"></span>
+        <span class="fa fa-bars"></span>
     </div>
 
     <div class="container">
@@ -37,7 +38,10 @@
         </div>
     </div>
 
-    <script src="bld/test.js"></script>
+    <!-- inject:js -->
+    <script src="/bld/lib.js"></script>
+    <script src="/bld/app.js"></script>
+    <!-- endinject -->
 </body>
 
 </html>
