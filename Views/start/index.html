@@ -12,28 +12,19 @@
     <!-- endinject -->
 </head>
 
-<body ng-app="main" ng-controller="main">
-    <h1>Your Todos</h1>
-
-    <ul>
-        <li>File structure</li>
-        <li>Bootstrap (use partial according to notes)</li>
-        <li>Think about less architecture according to input</li>
-        <li>Gulp packages according to Angular Architecture project</li>
-    </ul>
-
-    <div>
-        <div>Testing Font Awesome</div>
-        <span class="fa fa-bars"></span>
-    </div>
-
+<body ng-app="main" ng-controller="main as mainCtrl">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                Testing grid
-            </div>
-            <div class="col-md-6">
-                Testing grid
+            <div class="col-md-12">
+                <div>
+                    <button class="yt-button-okey">Okey!</button>
+                </div>
+                <div>
+                    <button class="yt-button-noway">Noway!</button>
+                </div>
+                <div>
+                    <button class="yt-button-maybe">Maybe!</button>
+                </div>
             </div>
         </div>
     </div>

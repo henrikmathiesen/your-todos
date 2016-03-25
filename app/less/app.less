@@ -7,7 +7,7 @@
 @import '@{lib-base-url}/font-awesome/less/variables.less';
 
 // Override vendor variables and app settings
-@import '_settings.less';
+@import '_yt-settings.less';
 
 // Bootstrap minimal
 @import '@{lib-base-url}/bootstrap/less/mixins.less';
@@ -32,14 +32,6 @@
 //
 // APP
 
-.some-thing {
-    columns: 100px 3;
-}
-
-body {
-    background-color: gold;
-}
-
-* {
-    box-sizing: border-box;
-}
+@import '_yt-base.less';
+@import '_yt-typography.less';
+@import './button/_yt-button.less';

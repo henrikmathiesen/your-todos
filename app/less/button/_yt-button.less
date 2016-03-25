@@ -1,0 +1,68 @@
+@yt-button-box-shadow: 2px 1px 4px 0px rgba(50, 50, 50, 0.75);
+
+.yt-button {
+    display: inline-block;
+    
+    padding-top: 9px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: @yt-color-white;
+    
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    border:none;
+    
+    //
+    // Okey button
+    
+    &-okey:extend(.yt-button),
+    &-okey--block:extend(.yt-button) {
+        background-color: fade(@yt-color-green, 90%);
+        &:hover {
+            background-color: @yt-color-green;
+            box-shadow: @yt-button-box-shadow;
+        }
+    }
+    
+    //
+    // Noway button
+    
+    &-noway:extend(.yt-button),
+    &-noway--block:extend(.yt-button) {
+        background-color: fade(@yt-color-red, 90%);
+        &:hover {
+            background-color: @yt-color-red;
+            box-shadow: @yt-button-box-shadow;
+        }
+    }
+    
+    //
+    // Maybe button
+    
+    &-maybe:extend(.yt-button),
+    &-maybe--block:extend(.yt-button) {
+        background-color: fade(@yt-color-yellow, 90%);
+        &:hover {
+            background-color: @yt-color-yellow;
+            box-shadow: @yt-button-box-shadow;
+        }
+    }
+    
+    //
+    // Modifiers
+    
+    &-okey--block,
+    &-noway--block,
+    &-maybe--block {
+        display: block;
+        width: 100%;
+    }
+    
+}
