@@ -25,8 +25,8 @@ var inject = require('gulp-inject');
 //
 // Toggle production / debug builds
 
-var isProduction = argv.prod ? true : false;
-var resetInject = argv.resetinject ? true : false;
+// var isProduction = argv.prod ? true : false;
+// var resetInject = argv.resetinject ? true : false;
 
 //
 // Sources
@@ -36,8 +36,13 @@ var jsServerSrc = [
     './server/**/*.js'
 ];
 
+// var buildFolder = './bld';
+// var lessSrc = './app/less/app.less';
+
+
+
 //
-// Tasks
+// Sub Tasks
 
 gulp.task('js-server', function () {
     return gulp
@@ -46,6 +51,18 @@ gulp.task('js-server', function () {
         .pipe(jshint.reporter(stylish))
         .pipe(jshint.reporter('fail'));
 });
+
+// gulp.task('less', function () {
+//     return gulp
+//         .src(lessSrc)
+//         //.pipe(gulpif(!isProduction, sourceMaps.init()))
+//         .pipe(less())
+//         .pipe(autoprefix({ browsers: ['last 3 versions'] }))
+//         .pipe(gulpif(isProduction, minifyCss()))
+//         .pipe(gulpif(isProduction, rev()))
+//         //.pipe(gulpif(!isProduction, sourceMaps.write()))
+//         .pipe(gulp.dest(buildFolder));
+// });
 
 //
 // Main Tasks
