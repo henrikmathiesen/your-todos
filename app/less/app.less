@@ -1,1 +1,33 @@
-// Empty less file
+//
+// LIB
+
+@lib-base-url: '../../bower_components';
+
+@import '@{lib-base-url}/bootstrap/less/variables.less';
+@import '@{lib-base-url}/font-awesome/less/variables.less';
+
+// Override vendor variables and app settings
+@import '_settings.less';
+
+// Bootstrap minimal
+@import '@{lib-base-url}/bootstrap/less/mixins.less';
+@import '@{lib-base-url}/bootstrap/less/normalize-less'
+@import '@{lib-base-url}/bootstrap/less/utilities.less';
+@import '@{lib-base-url}/bootstrap/less/responsive-utilities.less';
+@import '@{lib-base-url}/bootstrap/less/grid.less';
+
+// Font Awesome
+@import '@{lib-base-url}/font-awesome/less/mixins.less';
+@import '@{lib-base-url}/font-awesome/less/path.less';
+@import '@{lib-base-url}/font-awesome/less/core.less';
+@import '@{lib-base-url}/font-awesome/less/larger.less';
+@import '@{lib-base-url}/font-awesome/less/fixed-width.less';
+@import '@{lib-base-url}/font-awesome/less/list.less';
+@import '@{lib-base-url}/font-awesome/less/bordered-pulled.less';
+@import '@{lib-base-url}/font-awesome/less/animated.less';
+@import '@{lib-base-url}/font-awesome/less/rotated-flipped.less';
+@import '@{lib-base-url}/font-awesome/less/stacked.less';
+@import '@{lib-base-url}/font-awesome/less/icons.less';
+
+//
+// APP
