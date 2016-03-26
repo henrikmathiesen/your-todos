@@ -8,7 +8,7 @@ angular
            replace: true,
            scope: {},
            template: [
-               '<div ng-repeat="td in ctrl.todos" class="row {{ td.label | getCssClassForLabelFilter }}">',
+               '<div ng-repeat="td in ctrl.todos" class="row yt-no-side-margins {{ td.label | getCssClassForLabelFilter }}">',
                     '<div class="col-sm-8">',
                         '<p><span>{{ td.date }}</span> {{ td.text }}</p>',
                     '</div>',

@@ -1,0 +1,29 @@
+<form novalidate name="ctrl.addEditTodoForm">
+    <div class="row">
+        <div class="col-sm-8">
+            <textarea ng-required="true" name="todoText" placeholder="What to do" ng-model="ctrl.todo.text"></textarea>
+        </div>
+        <div class="col-sm-4">
+            <input type="date" ng-required="true" name="todoDate" ng-model="ctrl.todo.date" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            <span class="yt-button-work--block">Work</span>
+        </div>
+        <div class="col-sm-2">
+            <span class="yt-button-recreation--block">Joy</span>
+        </div>
+        <div class="col-sm-2">
+            <span class="yt-button-project--block">Project</span>
+        </div>
+        <div class="col-sm-3">
+            <span class="yt-button-noway--block">Noway</span>
+        </div>
+        <div class="col-sm-3">
+            <button 
+                ng-disabled="ctrl.addEditTodoForm.$invalid"
+                ng-class="{'yt-button-okey--block': ctrl.addEditTodoForm.$valid, 'yt-button-disabled--block':  ctrl.addEditTodoForm.$invalid}">Okey</button>
+        </div>
+    </div>
+</form>

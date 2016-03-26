@@ -19,6 +19,9 @@ angular
               case "project":
                 cssClass = 'yt-todo--project';
                 break;
+               case "nolabel":
+                cssClass = 'yt-todo--nolabel';
+                break;
               default:
                 console.log("ERROR");
                 break;

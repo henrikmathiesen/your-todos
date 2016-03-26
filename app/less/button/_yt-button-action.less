@@ -35,11 +35,22 @@
 }
 
 //
+// Disabled
+
+&-disabled:extend(.yt-button),
+&-disabled--block:extend(.yt-button) {
+    background-color: @yt-color-grey;
+    cursor: not-allowed!important;
+    
+}
+
+//
 // Modifiers
 
 &-okey--block,
 &-noway--block,
-&-maybe--block {
+&-maybe--block,
+&-disabled--block {
     display: block;
     width: 100%;
 }
