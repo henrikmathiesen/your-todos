@@ -8,6 +8,16 @@
         background-color: @yt-color-green;
         box-shadow: @yt-button-box-shadow;
     }
+    
+    //
+    // State
+    
+    &.is-disabled,
+    &.is-disabled:hover {
+        background-color: @yt-color-grey;
+        box-shadow: none;
+        cursor: not-allowed!important;
+    }
 }
 
 //
@@ -34,23 +44,14 @@
     }
 }
 
-//
-// Disabled
 
-&-disabled:extend(.yt-button),
-&-disabled--block:extend(.yt-button) {
-    background-color: @yt-color-grey;
-    cursor: not-allowed!important;
-    
-}
 
 //
 // Modifiers
 
 &-okey--block,
 &-noway--block,
-&-maybe--block,
-&-disabled--block {
+&-maybe--block {
     display: block;
     width: 100%;
 }

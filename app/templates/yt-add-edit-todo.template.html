@@ -29,7 +29,8 @@
         <div class="col-sm-3">
             <button 
                 ng-disabled="ctrl.addEditTodoForm.$invalid || !ctrl.todo.label"
-                ng-class="{'yt-button-okey--block': (ctrl.addEditTodoForm.$valid && ctrl.todo.label), 'yt-button-disabled--block':  (ctrl.addEditTodoForm.$invalid || !ctrl.todo.label)}">Okey</button>
+                class="yt-button-okey--block"
+                ng-class="{'is-disabled':  (ctrl.addEditTodoForm.$invalid || !ctrl.todo.label)}">Okey</button>
         </div>
     </div>
 </form>
