@@ -3,9 +3,18 @@
 
 &-work:extend(.yt-button),
 &-work--block:extend(.yt-button) {
-    background-color: fade(@yt-color-light-blue, 90%);
+    background-color: fade(@yt-color-light-blue, 60%);
     &:hover {
         background-color: @yt-color-light-blue;
+    }
+    
+    //
+    // State
+
+    &.is-active,
+    &.is-active:hover {
+        background-color: @yt-color-light-blue;
+        border: @yt-button-is-active-border;
     }
 }
 
@@ -14,9 +23,18 @@
 
 &-recreation:extend(.yt-button),
 &-recreation--block:extend(.yt-button) {
-    background-color: fade(@yt-color-cyan, 80%);
+    background-color: fade(@yt-color-cyan, 50%);
     &:hover {
         background-color: @yt-color-cyan;
+    }
+    
+    //
+    // State
+
+    &.is-active
+    &.is-active:hover, {
+        background-color: @yt-color-cyan;
+        border: @yt-button-is-active-border;
     }
 }
 
@@ -25,9 +43,18 @@
 
 &-project:extend(.yt-button),
 &-project--block:extend(.yt-button) {
-    background-color: fade(@yt-color-pink, 90%);
+    background-color: fade(@yt-color-pink, 60%);
     &:hover {
         background-color: @yt-color-pink;     
+    }
+    
+    //
+    // State
+
+    &.is-active,
+    &.is-active:hover {
+        border: @yt-button-is-active-border;
+        background-color: @yt-color-pink;
     }
 }
 
