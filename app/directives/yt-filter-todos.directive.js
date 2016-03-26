@@ -10,7 +10,7 @@ angular
            template: [
                '<div>',
                     '<select ng-model="ctrl.todosFilter.label">',
-                        '<option value="" selected="true">Filter</option>',
+                        '<option value="" selected="true">Alla</option>',
                         '<option value="work">Work</option>',
                         '<option value="recreation">Joy</option>',
                         '<option value="project">Project</option>',

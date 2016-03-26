@@ -14,16 +14,20 @@ angular
        
        var getTodosError = function (res) {
            console.log("error");
-           // TODO, handle error message
+           // TODO: handle error message
        };
        
        var getTodosComplete = function (res) {
-           // Might do something with this, like hide loader
+           // TODO: Might do something with this, like hide loader
        };
        
-       apiFactory.getTodos()
-        .then(getTodosSuccess)
-        .catch(getTodosError)
-        .finally(getTodosComplete);
+       mainCtrl.getTodos = function () {
+        apiFactory.getTodos()
+            .then(getTodosSuccess)
+            .catch(getTodosError)
+            .finally(getTodosComplete);
+       };
+       
+       mainCtrl.getTodos();
         
     });

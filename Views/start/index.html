@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col-md-2 hidden-sm hidden-xs"></div>
                 <div class="col-md-8">
-                    <yt-add-edit-todo ng-if="mainCtrl.todos.length"></yt-add-edit-todo>
+                    <yt-add-edit-todo reload-callback="mainCtrl.getTodos" ng-if="mainCtrl.todos.length"></yt-add-edit-todo>
                 </div>
                 <div class="col-md-2 hidden-sm hidden-xs"></div>
             </div>
