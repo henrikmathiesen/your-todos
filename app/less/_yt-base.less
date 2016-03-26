@@ -6,14 +6,30 @@
   display: none !important;
 }
 
+html {
+    height: 100%;
+}
+
 body {
+    height: 100%;
     background-color: @yt-color-corn;
     color: @yt-color-black;
     font-family: 'Ubuntu', sans-serif;
+}
+
+.yt-main-container {
+    min-height: 100%;
     padding-top: @yt-sticky-header-height;
+    margin-bottom: -@yt-sticky-footer-height;
     
     @media (min-width: @screen-md-min) { 
         padding-top: @yt-sticky-header-height-md-up;
+    }
+    
+    &:after {
+        content: "";
+        display: block;
+        height: @yt-sticky-footer-height;
     }
 }
 
