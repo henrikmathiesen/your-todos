@@ -21,7 +21,29 @@
         </h1>
     </header>
     <div class="yt-main-container">
-        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 hidden-sm hidden-xs"></div>
+                <div class="col-md-8">
+                    SEARCH
+                </div>
+                <div class="col-md-2 hidden-sm hidden-xs"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 hidden-sm hidden-xs"></div>
+                <div class="col-md-8">
+                    FILTER
+                </div>
+                <div class="col-md-2 hidden-sm hidden-xs"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 hidden-sm hidden-xs"></div>
+                <div class="col-md-8">
+                    <yt-todos todos="mainCtrl.todos" ng-if="mainCtrl.todos.length"></yt-todos>
+                </div>
+                <div class="col-md-2 hidden-sm hidden-xs"></div>
+            </div>
+        </div>
     </div>
     <footer class="yt-footer">
         <h3 class="yt-footer__byline">
