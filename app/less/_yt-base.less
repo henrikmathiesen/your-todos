@@ -8,4 +8,21 @@
 
 body {
     background-color: @yt-color-corn;
+    color: @yt-color-black;
+    font-family: 'Ubuntu', sans-serif;
+    padding-top: @yt-sticky-header-height;
+    
+    @media (min-width: @screen-md-min) { 
+        padding-top: @yt-sticky-header-height-md-up;
+    }
+}
+
+a {
+    color: @yt-color-black;
+    text-decoration: none;
+    border-bottom: 1px solid @yt-color-light-blue;
+    
+    &:hover {
+        border-bottom-width: 2px;
+    }
 }
