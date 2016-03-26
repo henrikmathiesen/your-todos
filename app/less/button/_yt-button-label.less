@@ -1,0 +1,42 @@
+//
+// Work
+
+&-work:extend(.yt-button),
+&-work--block:extend(.yt-button) {
+    background-color: fade(@yt-color-light-blue, 90%);
+    &:hover {
+        background-color: @yt-color-light-blue;
+    }
+}
+
+//
+// Recreation
+
+&-recreation:extend(.yt-button),
+&-recreation--block:extend(.yt-button) {
+    background-color: fade(@yt-color-cyan, 90%);
+    &:hover {
+        background-color: @yt-color-cyan;
+    }
+}
+
+//
+// Project
+
+&-project:extend(.yt-button),
+&-project--block:extend(.yt-button) {
+    background-color: fade(@yt-color-pink, 90%);
+    &:hover {
+        background-color: @yt-color-pink;     
+    }
+}
+
+//
+// Modifiers
+
+&-work--block,
+&-recreation--block,
+&-project--block {
+    display: block;
+    width: 100%;
+}
