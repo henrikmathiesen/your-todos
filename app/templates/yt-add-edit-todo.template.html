@@ -1,4 +1,4 @@
-<form novalidate name="ctrl.addEditTodoForm">
+<form novalidate name="ctrl.addEditTodoForm" ng-submit="ctrl.postTodo()">
     <div class="row">
         <div class="col-sm-8">
             <textarea ng-required="true" name="todoText" placeholder="What to do" ng-model="ctrl.todo.text"></textarea>
@@ -9,21 +9,27 @@
     </div>
     <div class="row">
         <div class="col-sm-2">
-            <span class="yt-button-work--block">Work</span>
+            <span class="yt-button-work--block" 
+                ng-class="{'is-active': ctrl.todo.label === 'work'}" 
+                ng-click="ctrl.todo.label = 'work'">Work</span>
         </div>
         <div class="col-sm-2">
-            <span class="yt-button-recreation--block">Joy</span>
+            <span class="yt-button-recreation--block" 
+                ng-class="{'is-active': ctrl.todo.label === 'recreation'}" 
+                ng-click="ctrl.todo.label = 'recreation'">Joy</span>
         </div>
         <div class="col-sm-2">
-            <span class="yt-button-project--block is-active">Project</span>
+            <span class="yt-button-project--block" 
+                ng-class="{'is-active': ctrl.todo.label === 'project'}" 
+                ng-click="ctrl.todo.label = 'project'">Project</span>
         </div>
         <div class="col-sm-3">
             <span class="yt-button-noway--block">Noway</span>
         </div>
         <div class="col-sm-3">
             <button 
-                ng-disabled="ctrl.addEditTodoForm.$invalid"
-                ng-class="{'yt-button-okey--block': ctrl.addEditTodoForm.$valid, 'yt-button-disabled--block':  ctrl.addEditTodoForm.$invalid}">Okey</button>
+                ng-disabled="ctrl.addEditTodoForm.$invalid || !ctrl.todo.label"
+                ng-class="{'yt-button-okey--block': (ctrl.addEditTodoForm.$valid && ctrl.todo.label), 'yt-button-disabled--block':  (ctrl.addEditTodoForm.$invalid || !ctrl.todo.label)}">Okey</button>
         </div>
     </div>
 </form>
