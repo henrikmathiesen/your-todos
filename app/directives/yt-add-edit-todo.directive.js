@@ -19,7 +19,10 @@ angular
                 
                 ctrl.postTodo = function () {
                     console.log(ctrl.todo);
-                    apiFactory.postTodo(ctrl.todo);
+                    
+                    if(ctrl.addEditTodoForm.$valid) {
+                        apiFactory.postTodo(ctrl.todo);
+                    }
                 };
             },
             controllerAs: 'ctrl',
