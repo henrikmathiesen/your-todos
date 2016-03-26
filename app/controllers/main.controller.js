@@ -6,6 +6,7 @@ angular
         
        var mainCtrl = this;
        mainCtrl.todos = [];
+       mainCtrl.todosFilter = {};
        
        var getTodosSuccess = function (res) {
            mainCtrl.todos = res.data;
