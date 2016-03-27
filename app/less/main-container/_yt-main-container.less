@@ -1,10 +1,12 @@
 .yt-main-container {
     min-height: 100%;
-    padding-top: @yt-sticky-header-height;
+    padding-top: @yt-sticky-header-height + 20;
+    padding-bottom: 20px;
     margin-bottom: -@yt-sticky-footer-height;
     
     @media (min-width: @screen-md-min) { 
-        padding-top: @yt-sticky-header-height-md-up;
+        padding-top: @yt-sticky-header-height-md-up + 40;
+        padding-bottom: 40px;
     }
     
     &:after {
