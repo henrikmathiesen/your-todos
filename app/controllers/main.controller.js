@@ -17,9 +17,9 @@ angular
        };
        
        mainCtrl.getTodos = function () {
-        apiFactory.getTodos()
-            .then(getTodosSuccess)
-            .catch(getTodosError);
+            apiFactory.getTodos()
+                .then(getTodosSuccess)
+                .catch(getTodosError);
        };
        
        mainCtrl.getTodos();

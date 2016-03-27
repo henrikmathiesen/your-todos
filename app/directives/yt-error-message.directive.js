@@ -8,7 +8,7 @@ angular
             replace: true,
             scope: {},
             template: [
-                '<div class="yt-error-message" ng-show="true">',
+                '<div class="yt-error-message" ng-show="ctrl.getSetErrorFactory.getError()">',
                         '<div class="yt-error-message__inner">',
                             '<h2 class="yt-error-message__inner__header">',
                                 'An error has occurred!',
@@ -25,7 +25,6 @@ angular
             controller: function (getSetErrorFactory) {
                 var ctrl = this;
                 ctrl.getSetErrorFactory = getSetErrorFactory;
-                // ctrl.getSetErrorFactory.getError()
             },
             controllerAs: 'ctrl',
             bindToController: true

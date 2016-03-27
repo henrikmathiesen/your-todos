@@ -1,11 +1,15 @@
 .yt-error-message {
     position: absolute;
-    top: 25%;
+    top: 10%;
     left: 0;
     z-index: @yt-z-index-10;
     width: 100%;
     
     background-color: @yt-color-red;
+    
+    @media (min-width: @screen-sm-min) {
+        top: 25%;
+    }
     
     &__inner {
         margin-left:auto;
