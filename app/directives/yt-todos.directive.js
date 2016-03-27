@@ -35,9 +35,11 @@ angular
                };
                
                ctrl.deleteTodo = function (todo) {
-                   apiFactory.deleteTodo(todo.id)
-                        .then(deleteTodoSuccess)
-                        .catch(deleteTodoError);
+                   angular.element('#todo-id-' + todo.id).fadeOut(function () {
+                        apiFactory.deleteTodo(todo.id)
+                            .then(deleteTodoSuccess)
+                            .catch(deleteTodoError);
+                   });
                };
                
                ctrl.editTodo = function () {
