@@ -13,8 +13,8 @@ angular
                         '<p><span>{{ td.date | date: "short" }}</span> {{ td.text }}</p>',
                     '</div>',
                     '<div class="col-sm-4">',
-                        '<span class="fa fa-times"></span>',
-                        '<span class="fa fa-pencil"></span>',
+                        '<span class="fa fa-3x fa-times yt-fa-icon-delete"></span>',
+                        '<span class="fa fa-3x fa-pencil yt-fa-icon-edit"></span>',
                     '</div>',
                '</div>'
            ].join(''),
