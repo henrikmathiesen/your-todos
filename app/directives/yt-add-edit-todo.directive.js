@@ -51,7 +51,9 @@ angular
     
     /*
     
-    Scroll to id after PUT
+    Scroll to id after PUT and POST
+    fade in
+    maybe do CRUD in factory ...
     
     $("#button").click(function() {
     $('html, body').animate({

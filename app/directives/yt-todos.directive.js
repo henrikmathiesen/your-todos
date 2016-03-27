@@ -22,8 +22,12 @@ angular
            ].join(''),
            controller: function ($filter, apiFactory, getSetErrorFactory) {
                var ctrl = this;
-               ctrl.sortOrder = "-date";
                console.log(ctrl.todos);
+               
+               ctrl.sortOrder = "-date";
+               
+               //
+               // Delete todo
                
                var deleteTodoSuccess = function () {
                    console.log("DELETE SUCCESS");
@@ -41,6 +45,9 @@ angular
                             .catch(deleteTodoError);
                    });
                };
+               
+               //
+               // Edit todo
                
                ctrl.editTodo = function () {
                    // Get id also?
