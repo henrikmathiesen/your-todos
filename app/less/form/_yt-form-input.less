@@ -1,16 +1,22 @@
 .yt-form-input {
     display: block;
     width: 100%;
-    padding: @yt-gutter-xxs;
+    padding: @yt-gutter-xs;
     
-    background-color: @yt-color-white;
+    background-color: fade(@yt-color-white, 90%);
     color: @yt-color-black;
-    border: 1px solid @yt-color-black;
+    border: none;
     
-    font-size: 16px;
+    font-size: 18px;
     
     &:focus {
         outline: none;
-        
+        background-color: @yt-color-white;
+        box-shadow: @yt-box-shadow;
     } 
+}
+
+textarea.yt-form-input {
+    line-height: 20px;
+    height: 75px;
 }

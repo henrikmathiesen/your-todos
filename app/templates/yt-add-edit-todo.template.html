@@ -1,10 +1,10 @@
 <form novalidate name="ctrl.addEditTodoForm" ng-submit="ctrl.postTodo()">
     <div class="row">
         <div class="col-sm-8">
-            <textarea ng-required="true" name="todoText" placeholder="What to do (all inputs required)" ng-model="ctrl.todo.text"></textarea>
+            <textarea class="yt-form-input" ng-required="true" name="todoText" placeholder="What to do (all inputs required)" ng-model="ctrl.todo.text"></textarea>
         </div>
         <div class="col-sm-4">
-            <input type="datetime-local" ng-required="true" name="todoDate" ng-model="ctrl.todo.date" />
+            <input class="yt-form-input" type="datetime-local" ng-required="true" name="todoDate" ng-model="ctrl.todo.date" />
         </div>
     </div>
     <div class="row">
