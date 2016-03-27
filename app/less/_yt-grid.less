@@ -1,0 +1,52 @@
+//
+// Gutter between bootstrap rows
+
+.row + .row {
+    margin-top: @yt-gutter-sm;
+}
+
+//
+// Site sections
+
+.yt-site-section + .yt-site-section,
+.yt-site-section--divide + .yt-site-section {
+    margin-top: @yt-gutter-md;
+}
+
+.yt-site-section + .yt-site-section--divide,
+.yt-site-section--divide + .yt-site-section--divide {
+    margin-top: @yt-gutter-lg;
+}
+
+//
+// Gutter between stacked bootstrap columns (col-xs never stack)
+
+@media (max-width: @screen-xs-max) { 
+    div[class^='col-sm-'] + div[class^='col-sm-'] {
+        margin-top: @yt-gutter-sm;
+    }
+    
+    div[class^='col-sm-'] + div[class^='col-sm-'].yt-stacked-col-extra-y-gutter {
+        margin-top: @yt-gutter-md;
+    }
+}
+
+@media (max-width: @screen-sm-max) { 
+    div[class^='col-md-'] + div[class^='col-md-'] {
+        margin-top: @yt-gutter-sm;
+    }
+    
+    div[class^='col-md-'] + div[class^='col-md-'].yt-stacked-col-extra-y-gutter {
+        margin-top: @yt-gutter-md;
+    }
+}
+
+@media (max-width: @screen-md-max) { 
+    div[class^='col-lg-'] + div[class^='col-lg-'] {
+        margin-top: @yt-gutter-sm;
+    }
+    
+    div[class^='col-lg-'] + div[class^='col-lg-'].yt-stacked-col-extra-y-gutter {
+        margin-top: @yt-gutter-md;
+    }
+}

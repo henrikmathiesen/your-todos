@@ -1,7 +1,11 @@
-<form novalidate name="ctrl.addEditTodoForm" ng-submit="ctrl.postTodo()">
+<form class="yt-add-edit-todo-form" novalidate name="ctrl.addEditTodoForm" ng-submit="ctrl.postTodo()">
     <div class="row">
         <div class="col-sm-8">
-            <textarea class="yt-form-input" ng-required="true" name="todoText" placeholder="What to do (all inputs required)" ng-model="ctrl.todo.text"></textarea>
+            <textarea class="yt-form-input" 
+                      ng-required="true" 
+                      name="todoText" 
+                      placeholder="What to do, when to do it and apply 1 of 3 labels" 
+                      ng-model="ctrl.todo.text"></textarea>
         </div>
         <div class="col-sm-4">
             <input class="yt-form-input" type="datetime-local" ng-required="true" name="todoDate" ng-model="ctrl.todo.date" />
@@ -23,7 +27,7 @@
                 ng-class="{'is-active': ctrl.todo.label === 'project'}" 
                 ng-click="ctrl.todo.label = 'project'">Project</span>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3 yt-stacked-col-extra-y-gutter">
             <span class="yt-button-noway--block" ng-click="ctrl.setEmptyVm()">Noway</span>
         </div>
         <div class="col-sm-3">
