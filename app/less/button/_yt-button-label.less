@@ -2,7 +2,8 @@
 // Work
 
 &-work:extend(.yt-button),
-&-work--block:extend(.yt-button) {
+&-work--block:extend(.yt-button),
+&-work--block-tight:extend(.yt-button) {
     background-color: fade(@yt-color-light-blue, 60%);
     &:hover {
         background-color: @yt-color-light-blue;
@@ -22,7 +23,8 @@
 // Joy
 
 &-joy:extend(.yt-button),
-&-joy--block:extend(.yt-button) {
+&-joy--block:extend(.yt-button),
+&-joy--block-tight:extend(.yt-button) {
     background-color: fade(@yt-color-cyan, 50%);
     &:hover {
         background-color: @yt-color-cyan;
@@ -42,7 +44,8 @@
 // Project
 
 &-project:extend(.yt-button),
-&-project--block:extend(.yt-button) {
+&-project--block:extend(.yt-button),
+&-project--block-tight:extend(.yt-button) {
     background-color: fade(@yt-color-pink, 60%);
     &:hover {
         background-color: @yt-color-pink;     
@@ -63,7 +66,22 @@
 
 &-work--block,
 &-joy--block,
-&-project--block {
+&-project--block,
+&-work--block-tight,
+&-joy--block-tight,
+&-project--block-tight {
     display: block;
     width: 100%;
+}
+
+&-work--block-tight,
+&-joy--block-tight,
+&-project--block-tight {
+    @media (min-width: @screen-md-min) and (max-width: @screen-lg-min) { 
+        font-size: 12px;
+        padding-top: 11px;
+        padding-bottom: 8px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
 }
