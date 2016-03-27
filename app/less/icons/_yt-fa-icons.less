@@ -2,11 +2,21 @@
     padding: @yt-gutter-xxs;
     background-color: @yt-color-black;
     
-    &-delete:extend(.yt-fa-icon) {
+    &-delete:extend(.yt-fa-icon),
+    &-delete--block:extend(.yt-fa-icon) {
         color: @yt-color-red;
     }
     
-    &-edit:extend(.yt-fa-icon) {
+    &-edit:extend(.yt-fa-icon),
+    &-edit--block:extend(.yt-fa-icon) {
         color: @yt-color-yellow;
+    }
+    
+    //
+    // Modifiers
+    
+    &-delete--block,
+    &-edit--block {
+        display: block;
     }
 }
