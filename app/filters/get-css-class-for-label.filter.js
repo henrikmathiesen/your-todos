@@ -13,8 +13,8 @@ angular
               case "work":
                 cssClass = 'yt-todo--work';
                 break;
-              case "recreation":
-                cssClass = 'yt-todo--recreation';
+              case "joy":
+                cssClass = 'yt-todo--joy';
                 break;
               case "project":
                 cssClass = 'yt-todo--project';

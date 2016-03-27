@@ -12,7 +12,7 @@ angular
                     '<select ng-model="ctrl.todosFilter.label">',
                         '<option value="" selected="true">Alla</option>',
                         '<option value="work">Work</option>',
-                        '<option value="recreation">Joy</option>',
+                        '<option value="joy">Joy</option>',
                         '<option value="project">Project</option>',
                     '</select>',
                     '<input type="text" ng-model="ctrl.todosFilter.text" placeholder="Search ..." />',
