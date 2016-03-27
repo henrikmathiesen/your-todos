@@ -22,21 +22,21 @@
     </header>
     <div class="yt-main-container">
         <div class="container" yt-app-has-error="">
-            <div class="row">
+            <div class="row yt-site-section">
                 <div class="col-md-2 hidden-sm hidden-xs"></div>
                 <div class="col-md-8">
                     <yt-add-edit-todo reload-callback="mainCtrl.getTodos" ng-if="mainCtrl.todos.length"></yt-add-edit-todo>
                 </div>
                 <div class="col-md-2 hidden-sm hidden-xs"></div>
             </div>
-            <div class="row">
+            <div class="row yt-site-section">
                 <div class="col-md-2 hidden-sm hidden-xs"></div>
                 <div class="col-md-8">
                     <yt-filter-todos todos-filter="mainCtrl.todosFilter" ng-if="mainCtrl.todos.length"></yt-filter-todos>
                 </div>
                 <div class="col-md-2 hidden-sm hidden-xs"></div>
             </div>
-            <div class="row">
+            <div class="row yt-site-section">
                 <div class="col-md-2 hidden-sm hidden-xs"></div>
                 <div class="col-md-8">
                     <yt-todos todos="mainCtrl.todos" todos-filter="mainCtrl.todosFilter" ng-if="mainCtrl.todos.length"></yt-todos>
