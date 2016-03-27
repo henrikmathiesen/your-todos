@@ -2,7 +2,7 @@
 
 angular
     .module('main')
-    .controller('main', function (apiFactory) {
+    .controller('main', function (apiFactory, getSetErrorFactory) {
         
        var mainCtrl = this;
        mainCtrl.todos = [];
@@ -13,19 +13,13 @@ angular
        };
        
        var getTodosError = function (res) {
-           console.log("error");
-           // TODO: handle error message
-       };
-       
-       var getTodosComplete = function (res) {
-           // TODO: Might do something with this, like hide loader
+           getSetErrorFactory.setError(true);
        };
        
        mainCtrl.getTodos = function () {
         apiFactory.getTodos()
             .then(getTodosSuccess)
-            .catch(getTodosError)
-            .finally(getTodosComplete);
+            .catch(getTodosError);
        };
        
        mainCtrl.getTodos();

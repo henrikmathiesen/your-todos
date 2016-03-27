@@ -2,7 +2,8 @@
 // Okey button
 
 &-okey:extend(.yt-button),
-&-okey--block:extend(.yt-button) {
+&-okey--block:extend(.yt-button),
+&-okey--block-75-centerx:extend(.yt-button) {
     background-color: fade(@yt-color-green, 90%);
     &:hover {
         background-color: @yt-color-green;
@@ -24,7 +25,8 @@
 // Noway button
 
 &-noway:extend(.yt-button),
-&-noway--block:extend(.yt-button) {
+&-noway--block:extend(.yt-button),
+&-noway--block-75-centerx:extend(.yt-button) {
     background-color: fade(@yt-color-red, 90%);
     &:hover {
         background-color: @yt-color-red;
@@ -36,7 +38,8 @@
 // Maybe button
 
 &-maybe:extend(.yt-button),
-&-maybe--block:extend(.yt-button) {
+&-maybe--block:extend(.yt-button),
+&-maybe--block-75-centerx:extend(.yt-button) {
     background-color: fade(@yt-color-yellow, 90%);
     &:hover {
         background-color: @yt-color-yellow;
@@ -54,4 +57,19 @@
 &-maybe--block {
     display: block;
     width: 100%;
+}
+
+&-okey--block-75-centerx,
+&-noway--block-75-centerx,
+&-maybe--block-75-centerx {
+    display: block;
+    width: 100%;
+    margin-left: initial;
+    margin-right: initial;
+    
+    @media (min-width: @screen-sm-min) { 
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

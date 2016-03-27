@@ -1,0 +1,34 @@
+.yt-error-message {
+    position: absolute;
+    top: 25%;
+    left: 0;
+    z-index: @yt-z-index-10;
+    width: 100%;
+    
+    background-color: @yt-color-red;
+    
+    &__inner {
+        margin-left:auto;
+        margin-right:auto;
+        width: 75%;
+        max-width: @yt-main-column-max-width;
+        
+        position: relative;
+        top: -4px;
+        
+        padding-top: @yt-gutter-md;
+        padding-bottom: @yt-gutter-md;
+        
+        color: @yt-color-white;
+        text-align: center;
+        
+        
+        @media (min-width: @screen-sm-min) { 
+            width: 50%;
+        }
+        
+        &__header {
+            margin-top:0;
+        }
+    }
+}

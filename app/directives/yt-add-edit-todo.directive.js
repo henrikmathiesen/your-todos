@@ -8,7 +8,7 @@ angular
             replace: true,
             scope: {},
             templateUrl: 'app/templates/yt-add-edit-todo.template.html',
-            controller: function(apiFactory) {
+            controller: function(apiFactory, getSetErrorFactory) {
                 var ctrl = this;
                 
                 ctrl.setEmptyVm = function () {
@@ -26,25 +26,16 @@ angular
                 };
 
                 var postTodoError = function() {
-                    console.log("error");
-                    // TODO: handle error message
-                };
-
-                var postTodoComplete = function() {
-                    console.log("POST COMPLETE");
-                    // TODO: Might do something with this, like hide loader
+                    getSetErrorFactory.setError(true);
                 };
 
                 ctrl.postTodo = function() {
-
                     console.log(ctrl.todo);
 
                     if (ctrl.addEditTodoForm.$valid) {
                         apiFactory.postTodo(ctrl.todo)
                             .then(postTodoSuccess)
-                            .catch(postTodoError)
-                            .finally(postTodoComplete);
-
+                            .catch(postTodoError);
                     }
                 };
                 
