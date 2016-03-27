@@ -10,7 +10,7 @@ angular
            template: [
                '<div ng-repeat="td in ctrl.todos | orderBy: ctrl.sortOrder | filter:{ label: ctrl.todosFilter.label, text: ctrl.todosFilter.text }" class="row yt-no-side-margins {{ td.label | getCssClassForLabelFilter }}">',
                     '<div class="col-sm-10">',
-                        '<p><span>{{ td.date | date: "short" }}</span> {{ td.text }}</p>',
+                        '<p><span class="thin-text">{{ td.date | date: "short" }}&nbsp;&nbsp;&nbsp;</span> {{ td.text }}</p>',
                     '</div>',
                     '<div class="col-sm-2 yt-no-padding-right">',
                         '<span class="fa fa-3x fa-times yt-fa-icon-delete--block yt-border-divider-left-sm"></span>',
