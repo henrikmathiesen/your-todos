@@ -1,15 +1,17 @@
 @yt-button-box-shadow: 2px 1px 4px 0px rgba(50, 50, 50, 0.75);
 @yt-button-is-active-border: 1px solid @yt-color-black;
+@yt-button-height: 40px;
 
 .yt-button {
     display: inline-block;
     
-    padding-top: 9px;
-    padding-bottom: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-top: @yt-gutter-xs;
+    padding-bottom: @yt-gutter-xs;
+    padding-left: @yt-gutter-sm;
+    padding-right: @yt-gutter-sm;
     
-    height: 37px;
+    height: @yt-button-height;
+    line-height: @yt-button-height - @yt-gutter-xs * 2;
     
     text-align: center;
     font-size: 16px;
