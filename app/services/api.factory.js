@@ -15,7 +15,7 @@ angular
        };
        
        factory.postTodo = function (todo) {
-           return $http.post('/api/todooooooooo', todo);
+           return $http.post('/api/todo', todo);
        };
        
        factory.putTodo = function (id, todo) {
