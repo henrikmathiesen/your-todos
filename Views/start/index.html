@@ -34,7 +34,7 @@
             </div>
             <div class="row yt-site-section">
                 <div class="col-md-8 center-block yt-float-none">
-                    <yt-todos todos="mainCtrl.todos" todos-filter="mainCtrl.todosFilter" ng-if="mainCtrl.todos.length"></yt-todos>
+                    <yt-todos todos="mainCtrl.todos" todos-filter="mainCtrl.todosFilter" reload-callback="mainCtrl.getTodos" ng-if="mainCtrl.todos.length"></yt-todos>
                 </div>
             </div>
         </div>
