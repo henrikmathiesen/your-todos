@@ -19,13 +19,9 @@ angular
                '</div>'
            ].join(''),
            controller: function ($filter) {
-               
                var ctrl = this;
-               
                ctrl.sortOrder = "-date";
-               
                console.log(ctrl.todos);
-               
            },
            controllerAs: 'ctrl',
            bindToController: {

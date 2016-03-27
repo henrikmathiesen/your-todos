@@ -2,7 +2,7 @@
 
 angular
     .module('main')
-    .filter('getCssClassForLabelFilter', function () {
+    .filter('getCssClassForLabelFilter', function (LABELS_CONSTANTS) {
         
         return function (label) {
           
@@ -10,17 +10,14 @@ angular
           var cssClass = "";
           
           switch (label) {
-              case "work":
+              case LABELS_CONSTANTS.work:
                 cssClass = 'yt-todo--work';
                 break;
-              case "joy":
+              case LABELS_CONSTANTS.joy:
                 cssClass = 'yt-todo--joy';
                 break;
-              case "project":
+              case LABELS_CONSTANTS.project:
                 cssClass = 'yt-todo--project';
-                break;
-               case "nolabel":
-                cssClass = 'yt-todo--nolabel';
                 break;
               default:
                 console.log("ERROR");
