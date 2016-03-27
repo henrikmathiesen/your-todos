@@ -11,7 +11,7 @@ angular
                '<div class="row">',
                     '<div class="col-sm-6">',
                         '<select class="yt-form-input" ng-model="ctrl.todosFilter.label">',
-                            '<option value="" selected="true">Alla</option>',
+                            '<option value="" selected="true">All</option>',
                             '<option value="{{ctrl.LABELS.work}}">Work</option>',
                             '<option value="{{ctrl.LABELS.joy}}">Joy</option>',
                             '<option value="{{ctrl.LABELS.project}}">Project</option>',
