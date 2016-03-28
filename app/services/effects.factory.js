@@ -37,7 +37,7 @@ angular
                     hasScrolled = true;
                 });
 
-            }, 500);
+            }, 250);
         };
 
         factory.scrollTop = function(doneCb) {

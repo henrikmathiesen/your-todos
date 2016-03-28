@@ -15,7 +15,7 @@ angular
                 // Gets set to edit VM: when user clicks penn icon on one of the todos
                 ctrl.todo = {};
 
-                ctrl.setEmptyVm = function() {
+                var setEmptyVm = function() {
                     ctrl.todo = {
                         id: 0,
                         date: "",
@@ -35,24 +35,38 @@ angular
                     if (!ctrl.addEditTodoForm.$valid) { return; }
                     
                     if(!ctrl.todo.id) {
-                        // A new todo, POST it
+                        // A new todo - POST it
                         crudFactory.postTodo(ctrl.todo, function(res) {
-                            ctrl.setEmptyVm();
+                            setEmptyVm();
                             reloadTodos(res.data); // server sends back id of posted todo
                         });
                     }
                     else {
-                        // An existing todo, under edit, PUT it
+                        // An existing todo, under edit - PUT it
                         crudFactory.putTodo(ctrl.todo.id, ctrl.todo, function () {
                             var id = ctrl.todo.id;
-                            ctrl.setEmptyVm();
+                            setEmptyVm();
                             reloadTodos(id);
                         });
                     }
 
                 };
+                
+                ctrl.cancelTodo = function () {
+                    if(!ctrl.todo.id) {
+                        // A new todo, canceled, clear form
+                        console.log("A new todo, canceled, clear form");
+                        setEmptyVm();
+                    }
+                    else {
+                        // An existing todo, canceled edit - clear form and scroll back to it
+                        var id = ctrl.todo.id;
+                        setEmptyVm();
+                        effectsFactory.scrollToSelector('#' + SELECTOR_CONSTANT.todoId + id);
+                    }
+                };
 
-                ctrl.setEmptyVm();
+                setEmptyVm();
                 
                 crudFactory.subScribeToSetEditVm(function (todoEditVm) {
                    ctrl.todo = todoEditVm; 
