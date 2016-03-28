@@ -15,7 +15,7 @@ angular
                         '</div>',
                         '<div class="col-sm-2 yt-no-padding-right">',
                             '<span class="fa fa-3x fa-times yt-fa-icon-delete--block yt-border-divider-left-sm" ng-click="ctrl.deleteTodo(td)"></span>',
-                            '<span class="fa fa-3x fa-pencil yt-fa-icon-edit--block yt-border-divider-top-xs yt-border-divider-left-sm" ng-click="ctrl.editTodo()"></span>',
+                            '<span class="fa fa-3x fa-pencil yt-fa-icon-edit--block yt-border-divider-top-xs yt-border-divider-left-sm" ng-click="ctrl.editTodo(td)"></span>',
                         '</div>',
                     '</div>',
                 '</div>'
@@ -37,10 +37,8 @@ angular
                    });
                };
                
-               //
-               // Edit todo
-               
-               ctrl.editTodo = function () {
+               ctrl.editTodo = function (todo) {
+                   crudFactory.setEditVm(todo);
                    effectsFactory.scrollTop();
                };
            },

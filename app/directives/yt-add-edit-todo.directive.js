@@ -16,6 +16,7 @@ angular
 
                 ctrl.setEmptyVm = function() {
                     ctrl.todo = {
+                        id: 0,
                         date: "",
                         label: "",
                         text: ""

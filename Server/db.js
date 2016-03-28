@@ -21,7 +21,6 @@ var getTodos = function () {
     
     db.forEach(function (id, todo) {
         if(todo) {
-            todo.id = id;
             todos.push(todo);
         }
     });
@@ -40,6 +39,7 @@ var getTodo = function (id) {
 };
 
 var postTodo = function (todo) {
+    todo.id = indexToInsertInto; 
     db.set(indexToInsertInto, todo);
     indexToInsertInto++;
 };
