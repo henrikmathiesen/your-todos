@@ -52,11 +52,16 @@ var deleteTodo = function (id) {
     db.rm(id);
 };
 
+var getIndexToInsertInto = function () {  
+    return indexToInsertInto;
+};
+
 module.exports = {
     instance: db,
     getTodos: getTodos,
     getTodo: getTodo,
     postTodo: postTodo,
     putTodo: putTodo,
-    deleteTodo: deleteTodo
+    deleteTodo: deleteTodo,
+    getIndexToInsertInto: getIndexToInsertInto
 };

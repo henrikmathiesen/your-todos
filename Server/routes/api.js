@@ -25,7 +25,12 @@ router.get('/api/todo/:id', function (req, res) {
 router.post('/api/todo', function (req, res) {
     var todo = req.body;
     
+    // Send back the id of posted todo
+    res.json(db.getIndexToInsertInto());
+    
+    // Post todo (this will add 1 to indexToInsertInto, to be the id of next inserted todo)
     db.postTodo(todo);
+    
     res.end();
 });
 
