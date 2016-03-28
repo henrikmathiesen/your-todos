@@ -38,22 +38,21 @@ var getTodo = function (id) {
     return todo || {};
 };
 
-var postTodo = function (todo) {
-    todo.id = indexToInsertInto; 
-    db.set(indexToInsertInto, todo);
-    indexToInsertInto++;
+var postTodo = function (todo, callback) {
+    todo.id = indexToInsertInto;
+    
+    db.set(indexToInsertInto, todo, function () {
+        indexToInsertInto++;
+        callback(todo.id);
+    });
 };
 
-var putTodo = function (id, todo) {
-    db.set(id, todo);
+var putTodo = function (id, todo, callback) {
+    db.set(id, todo, callback);
 };
 
-var deleteTodo = function (id) {
-    db.rm(id);
-};
-
-var getIndexToInsertInto = function () {  
-    return indexToInsertInto;
+var deleteTodo = function (id, callback) {
+    db.rm(id, callback);
 };
 
 module.exports = {
@@ -63,5 +62,4 @@ module.exports = {
     postTodo: postTodo,
     putTodo: putTodo,
     deleteTodo: deleteTodo,
-    getIndexToInsertInto: getIndexToInsertInto
 };

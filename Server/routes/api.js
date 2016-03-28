@@ -25,28 +25,27 @@ router.get('/api/todo/:id', function (req, res) {
 router.post('/api/todo', function (req, res) {
     var todo = req.body;
     
-    // Send back the id of posted todo
-    res.json(db.getIndexToInsertInto());
-    
-    // Post todo (this will add 1 to indexToInsertInto, to be the id of next inserted todo)
-    db.postTodo(todo);
-    
-    res.end();
+    db.postTodo(todo, function (id) {
+        res.json(id);
+        res.end();
+    });
 });
 
 router.put('/api/todo/:id', function (req, res) {
     var id = parseInt(req.params.id);
     var todo = req.body;
     
-    db.putTodo(id, todo);
-    res.end();
+    db.putTodo(id, todo, function () {
+        res.end();
+    });
 });
 
 router.delete('/api/todo/:id', function (req, res) {
     var id = parseInt(req.params.id);
     
-    db.deleteTodo(id);
-    res.end();
+    db.deleteTodo(id, function () {
+        res.end();
+    });
 });
 
 module.exports = router;
