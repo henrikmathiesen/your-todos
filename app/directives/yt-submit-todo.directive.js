@@ -31,18 +31,18 @@ angular
                     });
                 };
                 
-                ctrl.postTodo = function() {
+                ctrl.submitTodo = function() {
                     if (!ctrl.addEditTodoForm.$valid) { return; }
                     
                     if(!ctrl.todo.id) {
-                        // A new todo, post it
+                        // A new todo, POST it
                         crudFactory.postTodo(ctrl.todo, function(res) {
                             ctrl.setEmptyVm();
                             reloadTodos(res.data); // server sends back id of posted todo
                         });
                     }
                     else {
-                        // An existing todo, under edit, put it
+                        // An existing todo, under edit, PUT it
                         crudFactory.putTodo(ctrl.todo.id, ctrl.todo, function () {
                             var id = ctrl.todo.id;
                             ctrl.setEmptyVm();
