@@ -30,11 +30,6 @@ var getTodos = function () {
 
 var getTodo = function (id) {
     var todo = db.get(id);
-    
-    if(todo) {
-        todo.id = id; 
-    }
-    
     return todo || {};
 };
 

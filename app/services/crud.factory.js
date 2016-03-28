@@ -6,6 +6,7 @@ angular
 
         var factory = {};
         var todoEditVm = {};
+        var setEditVmSubscriber;
         
         
         var onError = function () {
@@ -41,10 +42,14 @@ angular
             todoEditVm.date = new Date(todo.date);
             todoEditVm.label = todo.label;
             todoEditVm.text = todo.text;
+            
+            if(setEditVmSubscriber) {
+                setEditVmSubscriber(todoEditVm);
+            }
         };
         
-        factory.getEditVm = function () {
-            return todoEditVm;  
+        factory.subScribeToSetEditVm = function (callback) {
+            setEditVmSubscriber = callback;
         };
 
         return factory;

@@ -51,19 +51,12 @@ angular
                     }
 
                 };
-                
-                $scope.$watch(crudFactory.getEditVm, function (newValue, oldValue) {
-                    console.log("AAA");
-                    console.log(newValue);
-                   if(newValue.id) {
-                       console.log("=== XXX ===");
-                       console.log(newValue);
-                       console.log("=== /XXX ===");
-                       ctrl.todo = newValue;
-                   }
-                }, true);
 
                 ctrl.setEmptyVm();
+                
+                crudFactory.subScribeToSetEditVm(function (todoEditVm) {
+                   ctrl.todo = todoEditVm; 
+                });
             },
             controllerAs: 'ctrl',
             bindToController: {
