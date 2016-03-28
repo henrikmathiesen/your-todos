@@ -22,8 +22,6 @@ angular
            ].join(''),
            controller: function ($filter, apiFactory, getSetErrorFactory) {
                var ctrl = this;
-               console.log(ctrl.todos);
-               
                ctrl.sortOrder = "-date";
                
                //
