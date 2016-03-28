@@ -24,7 +24,7 @@
         <div class="container" yt-app-has-error="">
             <div class="row yt-site-section">
                 <div class="col-md-8 center-block yt-float-none">
-                    <yt-add-edit-todo reload-callback="mainCtrl.getTodos"></yt-add-edit-todo>
+                    <yt-add-edit-todo todos="mainCtrl.todos"></yt-add-edit-todo>
                 </div>
             </div>
             <div class="row yt-site-section--divide">
@@ -34,7 +34,7 @@
             </div>
             <div class="row yt-site-section">
                 <div class="col-md-8 center-block yt-float-none">
-                    <yt-todos todos="mainCtrl.todos" todos-filter="mainCtrl.todosFilter" reload-callback="mainCtrl.getTodos"></yt-todos>
+                    <yt-todos todos="mainCtrl.todos" todos-filter="mainCtrl.todosFilter"></yt-todos>
                 </div>
             </div>
         </div>

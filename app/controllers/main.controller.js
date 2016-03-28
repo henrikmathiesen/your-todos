@@ -2,26 +2,14 @@
 
 angular
     .module('main')
-    .controller('main', function (apiFactory, getSetErrorFactory) {
+    .controller('main', function (crudFactory) {
         
        var mainCtrl = this;
        mainCtrl.todos = [];
        mainCtrl.todosFilter = {};
        
-       var getTodosSuccess = function (res) {
+       crudFactory.getTodos(function (res) {
            mainCtrl.todos = res.data;
-       };
-       
-       var getTodosError = function (res) {
-           getSetErrorFactory.setError(true);
-       };
-       
-       mainCtrl.getTodos = function () {
-            apiFactory.getTodos()
-                .then(getTodosSuccess)
-                .catch(getTodosError);
-       };
-       
-       mainCtrl.getTodos();
+       });
         
     });

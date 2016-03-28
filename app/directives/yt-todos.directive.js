@@ -9,7 +9,7 @@ angular
            scope: {},
            template: [
                '<div>',
-                    '<div ng-repeat="td in ctrl.todos | orderBy: ctrl.sortOrder | filter:{ label: ctrl.todosFilter.label, text: ctrl.todosFilter.text }" class="row yt-no-side-margins {{ td.label | getCssClassForLabelFilter }}" id="todo-id-{{td.id}}">',
+                    '<div ng-repeat="td in ctrl.todos | orderBy: ctrl.sortOrder | filter:{ label: ctrl.todosFilter.label, text: ctrl.todosFilter.text }" class="row yt-no-side-margins {{ td.label | getCssClassForLabelFilter }}" id="{{ ctrl.SELECTOR_CONSTANT.todoId + td.id }}">',
                         '<div class="col-sm-10">',
                             '<p><span class="thin-text">{{ td.date | date: "short" }}&nbsp;&nbsp;&nbsp;</span> {{ td.text }}, id: {{ td.id }}</p>',
                         '</div>',
@@ -20,27 +20,22 @@ angular
                     '</div>',
                 '</div>'
            ].join(''),
-           controller: function ($filter, apiFactory, getSetErrorFactory) {
+           controller: function ($filter, crudFactory, SELECTOR_CONSTANT) {
                var ctrl = this;
+               ctrl.SELECTOR_CONSTANT = SELECTOR_CONSTANT;
                ctrl.sortOrder = "-date";
                
-               //
-               // Delete todo
-               
-               var deleteTodoSuccess = function () {
-                   console.log("DELETE SUCCESS");
-                   ctrl.reloadCallback();
-               };
-               
-               var deleteTodoError = function () {
-                   getSetErrorFactory.setError(true);
-               };
+               var reloadTodos = function () {
+                    crudFactory.getTodos(function (res) {
+                        ctrl.todos = res.data;
+                    });
+                };
                
                ctrl.deleteTodo = function (todo) {
-                   angular.element('#todo-id-' + todo.id).fadeOut(function () {
-                        apiFactory.deleteTodo(todo.id)
-                            .then(deleteTodoSuccess)
-                            .catch(deleteTodoError);
+                   angular.element('#' + SELECTOR_CONSTANT.todoId + todo.id).fadeOut(function () {
+                       crudFactory.deleteTodo(todo.id, function () {
+                           reloadTodos();
+                       });
                    });
                };
                
@@ -61,15 +56,12 @@ angular
                        console.log("XXX");
                        hasScrolled = true;
                    });
-                   
-                   
                };
            },
            controllerAs: 'ctrl',
            bindToController: {
                todos: '=',
-               todosFilter: '=',
-               reloadCallback: '='
+               todosFilter: '='
            }
        };
     });

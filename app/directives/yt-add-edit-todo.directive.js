@@ -8,7 +8,7 @@ angular
             replace: true,
             scope: {},
             templateUrl: 'app/templates/yt-add-edit-todo.template.html',
-            controller: function(apiFactory, getSetErrorFactory) {
+            controller: function(crudFactory) {
                 var ctrl = this;
                 
                 ctrl.setEmptyVm = function () {
@@ -18,32 +18,27 @@ angular
                         text: ""
                     };
                 };
-
-                var postTodoSuccess = function() {
-                    console.log("POST SUCCESS");
-                    ctrl.setEmptyVm();
-                    ctrl.reloadCallback();
+                
+                var reloadTodos = function () {
+                    crudFactory.getTodos(function (res) {
+                        ctrl.todos = res.data;
+                    });
                 };
-
-                var postTodoError = function() {
-                    getSetErrorFactory.setError(true);
-                };
-
-                ctrl.postTodo = function() {
-                    console.log(ctrl.todo);
-
-                    if (ctrl.addEditTodoForm.$valid) {
-                        apiFactory.postTodo(ctrl.todo)
-                            .then(postTodoSuccess)
-                            .catch(postTodoError);
-                    }
+                
+                ctrl.postTodo = function () {
+                    if (!ctrl.addEditTodoForm.$valid) { return; }
+                         
+                    crudFactory.postTodo(ctrl.todo, function (res) {
+                        ctrl.setEmptyVm();
+                        reloadTodos();
+                    });
                 };
                 
                 ctrl.setEmptyVm();
             },
             controllerAs: 'ctrl',
             bindToController: {
-                reloadCallback: '='
+                todos: '='
             }
         };
     });

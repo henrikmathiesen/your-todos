@@ -2,6 +2,6 @@
 
 angular
     .module('main')
-    .constant('TODO_SELECTOR', {
-        'selector': '#todo-id-'
+    .constant('SELECTOR_CONSTANT', {
+        'todoId': 'todo-id-'
     });
