@@ -20,7 +20,7 @@ angular
                     '</div>',
                 '</div>'
            ].join(''),
-           controller: function ($filter, crudFactory, SELECTOR_CONSTANT) {
+           controller: function ($filter, crudFactory, effectsFactory, SELECTOR_CONSTANT) {
                var ctrl = this;
                ctrl.SELECTOR_CONSTANT = SELECTOR_CONSTANT;
                ctrl.sortOrder = "-date";
@@ -32,10 +32,8 @@ angular
                 };
                
                ctrl.deleteTodo = function (todo) {
-                   angular.element('#' + SELECTOR_CONSTANT.todoId + todo.id).fadeOut(function () {
-                       crudFactory.deleteTodo(todo.id, function () {
-                           reloadTodos();
-                       });
+                   effectsFactory.fadeOutSelector('#' + SELECTOR_CONSTANT.todoId + todo.id, function () {
+                       crudFactory.deleteTodo(todo.id, reloadTodos);
                    });
                };
                
@@ -43,19 +41,7 @@ angular
                // Edit todo
                
                ctrl.editTodo = function () {
-                   // Get id also?
-                   // call factory and set editVM
-                   // listen for it in add-edit-todo directive
-                   console.log("edit todo");
-                   
-                   // Callback is run twice, since we target two elements, this makes it run just once as intended
-                   var hasScrolled = false;
-                   
-                   angular.element('html, body').animate({ scrollTop: 0 }, 'slow', function () {
-                       if(hasScrolled) { return; }
-                       console.log("XXX");
-                       hasScrolled = true;
-                   });
+                   effectsFactory.scrollTop();
                };
            },
            controllerAs: 'ctrl',
