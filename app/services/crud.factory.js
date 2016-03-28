@@ -24,6 +24,12 @@ angular
                 .catch(onError);
         };
         
+        factory.putTodo = function (id, todo, successCb) {
+            apiFactory.putTodo(id, todo)
+                .then(successCb)
+                .catch(onError);
+        };
+        
         factory.deleteTodo = function (id, successCb) {
             apiFactory.deleteTodo(id)
                 .then(successCb)
@@ -31,12 +37,14 @@ angular
         };
         
         factory.setEditVm = function (todo) {
-            console.log(todo);
-            
             todoEditVm.id = todo.id;
-            todoEditVm.date = todo.date;
+            todoEditVm.date = new Date(todo.date);
             todoEditVm.label = todo.label;
             todoEditVm.text = todo.text;
+        };
+        
+        factory.getEditVm = function () {
+            return todoEditVm;  
         };
 
         return factory;

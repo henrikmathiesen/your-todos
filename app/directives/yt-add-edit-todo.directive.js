@@ -8,10 +8,11 @@ angular
             replace: true,
             scope: {},
             templateUrl: 'app/templates/yt-add-edit-todo.template.html',
-            controller: function(crudFactory, effectsFactory, SELECTOR_CONSTANT) {
+            controller: function($scope, crudFactory, effectsFactory, SELECTOR_CONSTANT) {
                 var ctrl = this;
 
-                // Gets set to empty VM (if post or user clicks cancel button) or populated VM (if edit)
+                // Gets set to empty VM: init, after post to clear form, or user clicks cancel button
+                // Gets set to edit VM: when user clicks penn icon on one of the todos
                 ctrl.todo = {};
 
                 ctrl.setEmptyVm = function() {
@@ -29,15 +30,38 @@ angular
                         effectsFactory.scrollToSelector('#' + SELECTOR_CONSTANT.todoId + updatedId);
                     });
                 };
-
+                
                 ctrl.postTodo = function() {
                     if (!ctrl.addEditTodoForm.$valid) { return; }
+                    
+                    if(!ctrl.todo.id) {
+                        // A new todo, post it
+                        crudFactory.postTodo(ctrl.todo, function(res) {
+                            ctrl.setEmptyVm();
+                            reloadTodos(res.data); // server sends back id of posted todo
+                        });
+                    }
+                    else {
+                        // An existing todo, under edit, put it
+                        crudFactory.putTodo(ctrl.todo.id, ctrl.todo, function () {
+                            var id = ctrl.todo.id;
+                            ctrl.setEmptyVm();
+                            reloadTodos(id);
+                        });
+                    }
 
-                    crudFactory.postTodo(ctrl.todo, function(res) {
-                        ctrl.setEmptyVm();
-                        reloadTodos(res.data); // server sends back id of posted todo
-                    });
                 };
+                
+                $scope.$watch(crudFactory.getEditVm, function (newValue, oldValue) {
+                    console.log("AAA");
+                    console.log(newValue);
+                   if(newValue.id) {
+                       console.log("=== XXX ===");
+                       console.log(newValue);
+                       console.log("=== /XXX ===");
+                       ctrl.todo = newValue;
+                   }
+                }, true);
 
                 ctrl.setEmptyVm();
             },
