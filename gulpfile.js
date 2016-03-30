@@ -119,7 +119,7 @@ gulp.task('less', function () {
 //
 // Main Tasks
 
-gulp.task('default', ['clean-bld', 'js-lib', 'js-app', 'less'], function () {
+gulp.task('default', ['clean-bld', 'js-server', 'js-lib', 'js-app', 'less'], function () {
     if (!isProduction && !resetInject) { return; }
     
     // If in production or reset from revisioned production files to debug mode, then inject links to html file
