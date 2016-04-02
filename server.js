@@ -19,5 +19,5 @@ app.use('/bld', express.static(__dirname + '/bld'));
 db.instance.on('load', function () {
     app.use(routesStart);
     app.use(routesApi);
-    app.listen(1338, '192.168.0.10');
+    app.listen(1338);
 });
