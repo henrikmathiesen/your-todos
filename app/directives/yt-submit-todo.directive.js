@@ -46,6 +46,7 @@ angular
                         crudFactory.putTodo(ctrl.todo.id, ctrl.todo, function () {
                             var id = ctrl.todo.id;
                             setEmptyVm();
+                            crudFactory.setTodoIdUnderEdit(undefined);
                             reloadTodos(id);
                         });
                     }
@@ -61,6 +62,7 @@ angular
                         // An existing todo, canceled edit - clear form and scroll back to it
                         var id = ctrl.todo.id;
                         setEmptyVm();
+                        crudFactory.setTodoIdUnderEdit(undefined);
                         effectsFactory.scrollToSelector('#' + SELECTOR_CONSTANT.todoId + id);
                     }
                 };

@@ -7,6 +7,7 @@ angular
         var factory = {};
         var todoEditVm = {};
         var setEditVmSubscriber;
+        var todoIdUnderEdit;
         
         
         var onError = function () {
@@ -35,6 +36,14 @@ angular
             apiFactory.deleteTodo(id)
                 .then(successCb)
                 .catch(onError);
+        };
+        
+        factory.setTodoIdUnderEdit = function (id) {
+            todoIdUnderEdit = id;  
+        };
+        
+        factory.getTodoIdUnderEdit = function (id) {
+            return todoIdUnderEdit;
         };
         
         factory.setEditVm = function (todo) {
