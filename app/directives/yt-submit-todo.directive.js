@@ -55,7 +55,6 @@ angular
                 ctrl.cancelTodo = function () {
                     if(!ctrl.todo.id) {
                         // A new todo, canceled, clear form
-                        console.log("A new todo, canceled, clear form");
                         setEmptyVm();
                     }
                     else {
