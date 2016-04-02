@@ -21,6 +21,12 @@
 //
 // Gutter between stacked bootstrap columns (col-xs never stack)
 
+@media (max-width: @screen-xs-max) {
+    div[class*='col-xs-'] + div[class*='col-xs-'] {
+        margin-top: 0!important;
+    }
+}
+
 @media (max-width: @screen-xs-max) { 
     div[class^='col-sm-'] + div[class^='col-sm-'] {
         margin-top: @yt-gutter-sm;
