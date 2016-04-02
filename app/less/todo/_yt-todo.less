@@ -2,13 +2,37 @@
     
     &--work:extend(.yt-todo) {
         background-color: @yt-color-light-blue;
+        
+        //
+        // State
+    
+        &.is-disabled {
+            background-color: @yt-color-grey;
+            opacity: 0.6;
+        }
     }
     
     &--joy:extend(.yt-todo) {
         background-color: @yt-color-cyan;
+        
+        //
+        // State
+    
+        &.is-disabled {
+            background-color: @yt-color-grey;
+            opacity: 0.6;
+        }
     }
     
     &--project:extend(.yt-todo) {
         background-color: @yt-color-pink;
+        
+        //
+        // State
+    
+        &.is-disabled {
+            background-color: @yt-color-grey;
+            opacity: 0.6;
+        }
     }
 }

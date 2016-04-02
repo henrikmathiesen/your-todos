@@ -5,11 +5,29 @@
     &-delete:extend(.yt-fa-icon),
     &-delete--block:extend(.yt-fa-icon) {
         color: @yt-color-red;
+        
+        //
+        // State
+    
+        &.is-disabled {
+            color: fade(@yt-color-red, 25%);
+            background-color: @yt-color-grey;
+            cursor: not-allowed!important;
+        }
     }
     
     &-edit:extend(.yt-fa-icon),
     &-edit--block:extend(.yt-fa-icon) {
         color: @yt-color-yellow;
+        
+        //
+        // State
+    
+        &.is-disabled {
+            color: fade(@yt-color-yellow, 25%);
+            background-color: @yt-color-grey;
+            cursor: not-allowed!important;
+        }
     }
     
     //
