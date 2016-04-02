@@ -47,6 +47,8 @@ var jsAppSrc = [
     './app/**/*.js'
 ];
 
+var templateSrc = './app/templates/**/*.html';
+
 var lessSrc = './app/less/app.less';
 var lessSrcWatch = './app/less/**/*.less';
 
@@ -78,6 +80,14 @@ gulp.task('js-lib', function () {
         .pipe(gulpif(isProduction, rev()))
         
         .pipe(gulpif(!isProduction, sourceMaps.write()))
+        .pipe(gulp.dest(bldFolder));
+});
+
+gulp.task('template-cache', function () {
+    return gulp
+        .src(templateSrc)
+        .pipe(templateCache({ module: 'templatecache', standalone: true }))
+        .pipe(gulpif(isProduction, rev()))
         .pipe(gulp.dest(bldFolder));
 });
 
@@ -119,13 +129,14 @@ gulp.task('less', function () {
 //
 // Main Tasks
 
-gulp.task('default', ['clean-bld', 'js-server', 'js-lib', 'js-app', 'less'], function () {
+gulp.task('default', ['clean-bld', 'js-server', 'js-lib', 'template-cache', 'js-app', 'less'], function () {
     if (!isProduction && !resetInject) { return; }
     
     // If in production or reset from revisioned production files to debug mode, then inject links to html file
     
     var sourcesToInject = gulp.src([
         bldFolder + '/lib*.js',
+        bldFolder + '/templates*.js',
         bldFolder + '/app*.js',
         bldFolder + '/app*.css'
     ], { read: false });
@@ -138,6 +149,7 @@ gulp.task('default', ['clean-bld', 'js-server', 'js-lib', 'js-app', 'less'], fun
 
 gulp.task('watch', ['default'], function () {
     gulp.watch(jsServerSrc, ['js-server']);
+    gulp.watch(templateSrc, ['template-cache']);
     gulp.watch(jsAppSrc, ['js-app']);
     gulp.watch(lessSrcWatch, ['less']);
 });

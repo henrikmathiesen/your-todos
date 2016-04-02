@@ -7,7 +7,7 @@ angular
            restrict: 'E',
            replace: true,
            scope: {},
-           templateUrl: 'app/templates/yt-todos.template.html',
+           templateUrl: 'yt-todos.template.html',
            controller: function ($filter, crudFactory, effectsFactory, SELECTOR_CONSTANT) {
                var ctrl = this;
                ctrl.SELECTOR_CONSTANT = SELECTOR_CONSTANT;

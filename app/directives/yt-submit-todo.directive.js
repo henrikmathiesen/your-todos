@@ -7,7 +7,7 @@ angular
             restrict: 'E',
             replace: true,
             scope: {},
-            templateUrl: 'app/templates/yt-add-edit-todo.template.html',
+            templateUrl: 'yt-add-edit-todo.template.html',
             controller: function($scope, crudFactory, effectsFactory, SELECTOR_CONSTANT) {
                 var ctrl = this;
 
