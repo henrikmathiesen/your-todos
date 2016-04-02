@@ -1,5 +1,5 @@
 <div>
-    <div ng-repeat="td in ctrl.todos | orderBy: ctrl.sortOrder | filter:{ label: ctrl.todosFilter.label, text: ctrl.todosFilter.text } track by td.id" 
+    <div ng-repeat="td in ctrl.todos | orderBy: ctrl.sortOrder | filter:{ label: ctrl.todosFilter.label, text: ctrl.todosFilter.text }" 
         class="row yt-no-side-margins {{ td.label | getCssClassForLabelFilter }}" 
         ng-class="{'is-disabled' : ctrl.crudFactory.getTodoIdUnderEdit() == td.id }"
         id="{{ ctrl.SELECTOR_CONSTANT.todoId + td.id }}">

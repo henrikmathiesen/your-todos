@@ -2,11 +2,13 @@
 
 var express = require('express');
 var app = express();
+var compress = require('compression');
 
 var routesStart = require('./server/routes/start');
 var routesApi = require('./server/routes/api');
-
 var db = require('./server/db');
+
+app.use(compress()); 
 
 app.use(express.static(__dirname + '/Views/start'));
 app.use('/images', express.static(__dirname + '/images'));
