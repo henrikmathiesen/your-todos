@@ -22,6 +22,8 @@ var sourceMaps = require('gulp-sourcemaps');
 var rev = require('gulp-rev');
 var inject = require('gulp-inject');
 
+var Server = require('karma').Server;
+
 //
 // Toggle production / debug builds (example gulp --prod)
 
@@ -145,6 +147,14 @@ gulp.task('default', ['clean-bld', 'js-server', 'js-lib', 'template-cache', 'js-
         .src('./Views/start/index.html')
         .pipe(inject(sourcesToInject))
         .pipe(gulp.dest('./Views/start/'));
+});
+
+gulp.task('test', ['template-cache', 'js-app'], function (done) {
+    new Server({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: true,
+        verbose: true
+    }, done).start();
 });
 
 gulp.task('watch', ['default'], function () {
