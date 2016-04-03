@@ -13,5 +13,4 @@ describe("The app has a main module and dependencies", function() {
         expect(main).toBeDefined();
     });
     
-    
 });
