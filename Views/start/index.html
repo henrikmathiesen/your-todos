@@ -15,7 +15,7 @@
     <!-- endinject -->
 </head>
 
-<body ng-app="main" ng-controller="main as mainCtrl">
+<body ng-app="main" ng-cloak="" ng-controller="main as mainCtrl">
     <header class="yt-header" data-header="">
         <h1 class="yt-header__logo">
             Your Todos
@@ -23,8 +23,8 @@
     </header>
     <div class="yt-main-container">
         <div class="container" yt-app-has-error="">
-            <div class="row yt-site-section contracted-xs">
-                <div class="visible-xs yt-text-center">
+            <div class="row yt-site-section yt-cursor-pointer-xs contracted-xs" yt-section-contract-expand-xs="">
+                <div class="visible-xs yt-text-center" yt-section-contract-expand-xs-click="">
                     <span class="fa fa-2x yt-fa-icon-expand-contract fa-chevron-down"></span>
                 </div>
                 <div class="col-md-8 center-block yt-float-none">
@@ -50,6 +50,12 @@
     </footer>
     
     <yt-error-message></yt-error-message>
+    
+    <!-- Sniff viewport with JavaScript -->
+    <div class="device-xs visible-xs"></div>
+    <div class="device-sm visible-sm"></div>
+    <div class="device-md visible-md"></div>
+    <div class="device-lg visible-lg"></div>
     
     <!-- inject:js -->
     <script src="/bld/lib.js"></script>

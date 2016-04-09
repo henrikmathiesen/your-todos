@@ -36,6 +36,7 @@ angular
                    crudFactory.setEditVm(todo);
                    crudFactory.setTodoIdUnderEdit(todo.id);
                    effectsFactory.scrollTop();
+                   effectsFactory.ytSectionExpandXs();
                };
            },
            controllerAs: 'ctrl',

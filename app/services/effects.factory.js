@@ -2,7 +2,9 @@
 
 angular
     .module('main')
-    .factory('effectsFactory', function($timeout) {
+    .factory('effectsFactory', function($timeout, responsiveFactory) {
+
+        var $ytDirectiveContractExpand = angular.element('[yt-section-contract-expand-xs]');
 
         var factory = {};
 
@@ -22,7 +24,7 @@ angular
 
                 var $selector = angular.element(selector);
                 var $header = angular.element('[data-header]');
-                
+
                 angular.element('html, body').animate({ scrollTop: $selector.offset().top - ($header.height() + 4) }, 'medium', function() {
                     if (hasScrolled) { return; }
 
@@ -33,7 +35,7 @@ angular
                     if (doneCb) {
                         doneCb();
                     }
-                    
+
                     hasScrolled = true;
                 });
 
@@ -46,13 +48,42 @@ angular
 
             angular.element('html, body').animate({ scrollTop: 0 }, 'medium', function() {
                 if (hasScrolled) { return; }
-                
-                if(doneCb) {
+
+                if (doneCb) {
                     doneCb();
                 }
-                
+
                 hasScrolled = true;
             });
+        };
+
+        factory.ytSectionContractExpandXs = function(doneCb) {
+            if (!responsiveFactory.isRange('xs')) { return; }
+
+            $ytDirectiveContractExpand.find('.yt-fa-icon-expand-contract')
+                .toggleClass('fa-chevron-down fa-chevron-up');
+
+            $ytDirectiveContractExpand.toggleClass('contracted-xs expanded-xs');
+
+            if (doneCb) {
+                doneCb();
+            }
+        };
+
+        factory.ytSectionExpandXs = function(doneCb) {
+            if (!responsiveFactory.isRange('xs')) { return; }
+
+            $ytDirectiveContractExpand.find('.yt-fa-icon-expand-contract')
+                .removeClass('fa-chevron-down')
+                .addClass('fa-chevron-up');
+
+            $ytDirectiveContractExpand
+                .removeClass('contracted-xs')
+                .addClass('expanded-xs');
+
+            if (doneCb) {
+                doneCb();
+            }
         };
 
         return factory;
