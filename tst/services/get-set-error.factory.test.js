@@ -1,10 +1,10 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
 describe("get-set-errorFactory should communicate if app is in an error state or not", function() {
+    
+    var getSetErrorFactory;
 
     beforeEach(module('main'));
-
-    var getSetErrorFactory;
 
     beforeEach(inject(function(_getSetErrorFactory_) {
         getSetErrorFactory = _getSetErrorFactory_;

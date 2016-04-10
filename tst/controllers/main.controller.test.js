@@ -2,10 +2,10 @@
 
 describe("Main Controller sourounds the application", function() {
 
-    beforeEach(module('main'));
-
     var $controller;
     var crudFactory;
+
+    beforeEach(module('main'));
 
     beforeEach(inject(function(_$controller_, _crudFactory_) {
         $controller = _$controller_;

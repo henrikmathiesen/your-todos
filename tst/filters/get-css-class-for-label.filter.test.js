@@ -2,10 +2,10 @@
 
 describe("getCssClassForLabelFilter returns correct css class depending on label parameter", function() {
     
-    beforeEach(module('main'));
-    
     var $filter;
     var LABELS_CONSTANTS;
+    
+    beforeEach(module('main'));
     
     beforeEach(inject(function(_$filter_, _LABELS_CONSTANTS_) {
         $filter = _$filter_;

@@ -11,6 +11,7 @@ module.exports = function (config) {
             './bld/templates.js',
             './bld/app.js',
             './tst/**/*.js'
-        ]
+        ],
+        logLevel: config.LOG_DEBUG
     });
 }
