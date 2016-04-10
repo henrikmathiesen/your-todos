@@ -16,33 +16,25 @@ describe("crud factory works as a layer between api factory and the rest of the 
     
     it("should have a getTodos method that forwards the call to apiFactory", function () {
         spyOn(apiFactory, 'getTodos').and.returnValue($q.defer().promise);
-        
         crudFactory.getTodos();
-        
         expect(apiFactory.getTodos).toHaveBeenCalled(); 
     });
     
     it("should have a postTodo method that forwards the call to apiFactory", function () {
         spyOn(apiFactory, 'postTodo').and.returnValue($q.defer().promise);
-        
         crudFactory.postTodo();
-        
-        expect(apiFactory.postTodo).toHaveBeenCalled(); 
+        expect(apiFactory.postTodo).toHaveBeenCalled();
     });
     
     it("should have a putTodo method that forwards the call to apiFactory", function () {
         spyOn(apiFactory, 'putTodo').and.returnValue($q.defer().promise);
-        
         crudFactory.putTodo();
-        
         expect(apiFactory.putTodo).toHaveBeenCalled(); 
     });
     
     it("should have a deleteTodo method that forwards the call to apiFactory", function () {
         spyOn(apiFactory, 'deleteTodo').and.returnValue($q.defer().promise);
-        
         crudFactory.deleteTodo();
-        
         expect(apiFactory.deleteTodo).toHaveBeenCalled(); 
     });
     
