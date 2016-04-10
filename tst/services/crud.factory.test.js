@@ -2,45 +2,48 @@
 
 describe("crud factory works as a layer between api factory and the rest of the app", function () {
     
-    var $provide;
+    var $q;
     var crudFactory;
-    var mockedApiFactory;
+    var apiFactory;
     
-    var mockedApiFactoryStub = function () {
-        var factory = {};
-        
-        factory.getTodos = function () {
-            return "OK";
-        }
-        
-        return factory;  
-    };
+    beforeEach(module('main'));
     
-    beforeEach(function () {
-        module('main');
-        
-        module('main', function (_$provide_) {
-            $provide = _$provide_;
-        });
-        
-        inject(function (_crudFactory_) {
-            crudFactory = _crudFactory_;
-        });
-        
-        $provide.factory('mockedApiFactory', mockedApiFactoryStub);
-    });
-    
-    // Can also inject directly in it function: it("...", inject(function (mockedApiFactory) {}));
-    beforeEach(inject(function(_mockedApiFactory_) {
-        mockedApiFactory = _mockedApiFactory_;
+    beforeEach(inject(function(_$q_, _crudFactory_, _apiFactory_) {
+        $q = _$q_;
+        crudFactory = _crudFactory_;
+        apiFactory = _apiFactory_;
     }));
     
-    
-    it("apiFactory should be defined when injecting it in beforeEach", function () {
-        spyOn(mockedApiFactory, 'getTodos').and.callThrough();
+    it("should have a getTodos method that forwards the call to apiFactory", function () {
+        spyOn(apiFactory, 'getTodos').and.returnValue($q.defer().promise);
         
-        expect(mockedApiFactory).toBeDefined();
-        expect(mockedApiFactory.getTodos()).toBe("OK");
+        crudFactory.getTodos();
+        
+        expect(apiFactory.getTodos).toHaveBeenCalled(); 
+    });
+    
+    it("should have a postTodo method that forwards the call to apiFactory", function () {
+        spyOn(apiFactory, 'postTodo').and.returnValue($q.defer().promise);
+        
+        crudFactory.postTodo();
+        
+        expect(apiFactory.postTodo).toHaveBeenCalled(); 
+    });
+    
+    it("should have a putTodo method that forwards the call to apiFactory", function () {
+        spyOn(apiFactory, 'putTodo').and.returnValue($q.defer().promise);
+        
+        crudFactory.putTodo();
+        
+        expect(apiFactory.putTodo).toHaveBeenCalled(); 
+    });
+    
+    it("should have a deleteTodo method that forwards the call to apiFactory", function () {
+        spyOn(apiFactory, 'deleteTodo').and.returnValue($q.defer().promise);
+        
+        crudFactory.deleteTodo();
+        
+        expect(apiFactory.deleteTodo).toHaveBeenCalled(); 
     });
     
     it("should have methods for setting and getting which todo id is under edit", function () {
