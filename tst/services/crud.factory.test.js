@@ -4,12 +4,14 @@ describe("crud factory works as a layer between api factory and the rest of the 
     
     var $provide;
     var crudFactory;
-    var apiFactory;
+    var mockedApiFactory;
     
-    var mockedApiFactory = function () {
+    var mockedApiFactoryStub = function () {
         var factory = {};
         
-        factory.getTodos = jasmine.createSpy('getTodos');
+        factory.getTodos = function () {
+            return "OK";
+        }
         
         return factory;  
     };
@@ -21,27 +23,24 @@ describe("crud factory works as a layer between api factory and the rest of the 
             $provide = _$provide_;
         });
         
-        inject(function (_crudFactory_, _apiFactory_) {
+        inject(function (_crudFactory_) {
             crudFactory = _crudFactory_;
-            apiFactory = _apiFactory_;
         });
         
-        $provide.factory('apiFactory', mockedApiFactory);
+        $provide.factory('mockedApiFactory', mockedApiFactoryStub);
     });
     
-    
-    it("apiFactory should be defined when injecting it like this", inject(function (apiFactory) {
-        expect(apiFactory).toBeDefined();
+    // Can also inject directly in it function: it("...", inject(function (mockedApiFactory) {}));
+    beforeEach(inject(function(_mockedApiFactory_) {
+        mockedApiFactory = _mockedApiFactory_;
     }));
     
-    it("apiFactory should be defined when injecting it in beforeEach", function () {
-        expect(apiFactory).toBeDefined();
-    });
     
-    it("should work to spy on the mocked factory function", function () {
-        spyOn(apiFactory, 'getTodos');
-        apiFactory.getTodos();
-        expect(apiFactory.getTodos).toHaveBeenCalled();
+    it("apiFactory should be defined when injecting it in beforeEach", function () {
+        spyOn(mockedApiFactory, 'getTodos').and.callThrough();
+        
+        expect(mockedApiFactory).toBeDefined();
+        expect(mockedApiFactory.getTodos()).toBe("OK");
     });
     
     it("should have methods for setting and getting which todo id is under edit", function () {
