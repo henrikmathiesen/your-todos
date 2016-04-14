@@ -5,13 +5,15 @@ describe("crud factory works as a layer between api factory and the rest of the 
     var $q;
     var crudFactory;
     var apiFactory;
+    var getSetErrorFactory;
     
     beforeEach(module('main'));
     
-    beforeEach(inject(function(_$q_, _crudFactory_, _apiFactory_) {
+    beforeEach(inject(function(_$q_, _crudFactory_, _apiFactory_, _getSetErrorFactory_) {
         $q = _$q_;
         crudFactory = _crudFactory_;
         apiFactory = _apiFactory_;
+        getSetErrorFactory = _getSetErrorFactory_;
     }));
     
     it("should have a getTodos method that forwards the call to apiFactory", function () {
@@ -36,6 +38,24 @@ describe("crud factory works as a layer between api factory and the rest of the 
         spyOn(apiFactory, 'deleteTodo').and.returnValue($q.defer().promise);
         crudFactory.deleteTodo();
         expect(apiFactory.deleteTodo).toHaveBeenCalled(); 
+    });
+    
+    // This is not a good test since no logic in the actual service is run. Iam trying to get better at testing ...
+    it("should set the app in an error state if ajax error", function () {
+       spyOn(getSetErrorFactory, 'setError'); 
+       
+       spyOn(apiFactory, 'getTodos').and.callFake(function () {
+           return "500";
+       }); 
+        
+       spyOn(crudFactory, 'getTodos').and.callFake(function () {
+           apiFactory.getTodos();
+           getSetErrorFactory.setError(true);
+       }); 
+       
+       crudFactory.getTodos();
+       
+       expect(getSetErrorFactory.setError).toHaveBeenCalledWith(true);
     });
     
     it("should have methods for setting and getting which todo id is under edit", function () {
