@@ -32,11 +32,11 @@ angular
                         $selector.fadeTo('slow', 1.0);
                     });
 
+                    hasScrolled = true;
+                    
                     if (doneCb) {
                         doneCb();
                     }
-
-                    hasScrolled = true;
                 });
 
             }, 250);
@@ -49,11 +49,11 @@ angular
             angular.element('html, body').animate({ scrollTop: 0 }, 'medium', function() {
                 if (hasScrolled) { return; }
 
+                hasScrolled = true;
+                
                 if (doneCb) {
                     doneCb();
                 }
-
-                hasScrolled = true;
             });
         };
 
