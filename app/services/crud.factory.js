@@ -39,7 +39,7 @@ angular
         };
         
         factory.setTodoIdUnderEdit = function (id) {
-            todoIdUnderEdit = id;  
+            todoIdUnderEdit = id;
         };
         
         factory.getTodoIdUnderEdit = function (id) {

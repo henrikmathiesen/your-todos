@@ -10,10 +10,6 @@ angular
            return $http.get('/api/todos');
        };
        
-       factory.getTodo = function (id) {
-           return $http.get('/api/todos/' + id);
-       };
-       
        factory.postTodo = function (todo) {
            return $http.post('/api/todo', todo);
        };
