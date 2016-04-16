@@ -16,25 +16,25 @@ angular
 
         factory.getTodos = function(successCb) {
             apiFactory.getTodos()
-                .then(successCb)
+                .then(function (response) { successCb(response.data); })
                 .catch(onError);
         };
         
         factory.postTodo = function(todo, successCb) {
             apiFactory.postTodo(todo)
-                .then(successCb)
+                .then(function (response) { successCb(response.data); })
                 .catch(onError);
         };
         
         factory.putTodo = function (id, todo, successCb) {
             apiFactory.putTodo(id, todo)
-                .then(successCb)
+                .then(function (response) { successCb(response.data); })
                 .catch(onError);
         };
         
         factory.deleteTodo = function (id, successCb) {
             apiFactory.deleteTodo(id)
-                .then(successCb)
+                .then(function (response) { successCb(response.data); })
                 .catch(onError);
         };
         

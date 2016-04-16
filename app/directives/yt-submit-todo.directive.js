@@ -25,8 +25,8 @@ angular
                 };
 
                 var reloadTodos = function(updatedId) {
-                    crudFactory.getTodos(function(res) {
-                        ctrl.todos = res.data;
+                    crudFactory.getTodos(function(todos) {
+                        ctrl.todos = todos;
                         effectsFactory.scrollToSelector('#' + SELECTOR_CONSTANT.todoId + updatedId);
                     });
                 };
@@ -36,9 +36,9 @@ angular
                     
                     if(!ctrl.todo.id) {
                         // A new todo - POST it
-                        crudFactory.postTodo(ctrl.todo, function(res) {
+                        crudFactory.postTodo(ctrl.todo, function(id) {
                             setEmptyVm();
-                            reloadTodos(res.data); // server sends back id of posted todo
+                            reloadTodos(id);
                         });
                     }
                     else {
