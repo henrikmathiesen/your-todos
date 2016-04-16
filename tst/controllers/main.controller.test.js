@@ -59,7 +59,7 @@ describe("Main Controller sourounds the application", function () {
         });
         
         var mainCtrl = $controller('main', { crudFactory: crudFactoryMock });
-        expect(mainCtrl.todos.length).toBe(mockDataLength);
+        expect(mainCtrl.todos.length).toEqual(mockDataLength);
     });
 
 });
