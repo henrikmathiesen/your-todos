@@ -27,3 +27,4 @@ describe("we are testing various things here related to angular unit testing", f
 
 
 // http://www.syntaxsuccess.com/viewarticle/comprehensive-guide-to-unit-testing-in-angularjs
+// http://nathanleclaire.com/blog/2014/04/12/unit-testing-services-in-angularjs-for-fun-and-for-profit/
