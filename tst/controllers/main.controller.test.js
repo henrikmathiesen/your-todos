@@ -3,37 +3,43 @@
 describe("Main Controller sourounds the application", function () {
 
     var $q;
+    var $rootScope;
     var $controller;
     var crudFactory;
     var crudFactoryMock;
 
     beforeEach(module('main'));
 
-    beforeEach(inject(function (_$q_, _$controller_, _crudFactory_) {
+    beforeEach(inject(function (_$q_, _$rootScope_, _$controller_, _crudFactory_) {
         $q = _$q_;
+        $rootScope = _$rootScope_;
         $controller = _$controller_;
         crudFactory = _crudFactory_;
 
         crudFactoryMock = {
             getTodos: function () {
-                var response = {
-                    data: [
-                        {
-                            date: '2016-03-23T13:00:00.000Z',
-                            id: 0,
-                            label: 'project',
-                            text: 'My todo about some project'
-                        },
-                        {
-                            date: '2016-04-16T10:00:00.000Z',
-                            id: 1,
-                            label: 'work',
-                            text: 'My todo about some work'
-                        }
-                    ]
-                }
-                
-                return $q.when(response);
+                var data = [
+                    {
+                        date: '2016-03-23T13:00:00.000Z',
+                        id: 0,
+                        label: 'project',
+                        text: 'My todo about some project'
+                    },
+                    {
+                        date: '2016-04-16T10:00:00.000Z',
+                        id: 1,
+                        label: 'work',
+                        text: 'My todo about some work'
+                    }
+                ]
+
+
+                var deferred = $q.defer();
+                deferred.resolve(data);
+                return deferred.promise;
+
+                // We could also do this
+                //return $q.when(data);
             }
         };
     }));
@@ -55,13 +61,9 @@ describe("Main Controller sourounds the application", function () {
     });
 
     it("gets its vm populated with some todos from the crud factory", function () {
-        var mockDataLength = 0;
-        crudFactoryMock.getTodos(function (todos) {
-            mockDataLength = todos.length;
-        });
-        
         var mainCtrl = $controller('main', { crudFactory: crudFactoryMock });
-        expect(mainCtrl.todos.length).toEqual(mockDataLength);
+        $rootScope.$apply();
+        expect(mainCtrl.todos.length).toEqual(2);
     });
 
 });
