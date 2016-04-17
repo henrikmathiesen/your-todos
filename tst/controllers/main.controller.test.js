@@ -2,18 +2,20 @@
 
 describe("Main Controller sourounds the application", function () {
 
+    var $q;
     var $controller;
     var crudFactory;
     var crudFactoryMock;
 
     beforeEach(module('main'));
 
-    beforeEach(inject(function (_$controller_, _crudFactory_) {
+    beforeEach(inject(function (_$q_, _$controller_, _crudFactory_) {
+        $q = _$q_;
         $controller = _$controller_;
         crudFactory = _crudFactory_;
 
         crudFactoryMock = {
-            getTodos: function (successCb) {
+            getTodos: function () {
                 var response = {
                     data: [
                         {
@@ -30,8 +32,8 @@ describe("Main Controller sourounds the application", function () {
                         }
                     ]
                 }
-
-                successCb(response.data);
+                
+                return $q.when(response);
             }
         };
     }));
@@ -46,7 +48,7 @@ describe("Main Controller sourounds the application", function () {
     });
 
     it("is created and then calls crud factory to populate todos vm", function () {
-        spyOn(crudFactory, 'getTodos');
+        spyOn(crudFactory, 'getTodos').and.returnValue($q.defer().promise);
         var mainCtrl = $controller('main');
 
         expect(crudFactory.getTodos).toHaveBeenCalled();

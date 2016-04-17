@@ -15,9 +15,12 @@ angular
                 ctrl.sortOrder = "-date";
 
                 var reloadTodos = function () {
-                    crudFactory.getTodos(function (todos) {
-                        ctrl.todos = todos;
-                    });
+                    crudFactory
+                        .getTodos()
+                        .then(function (todos) {
+                            ctrl.todos = todos;
+
+                        });
                 };
 
                 ctrl.deleteTodo = function (todo) {
@@ -25,7 +28,9 @@ angular
                     if (crudFactory.getTodoIdUnderEdit() == todo.id) { return; }
 
                     effectsFactory.fadeOutSelector('#' + SELECTOR_CONSTANT.todoId + todo.id, function () {
-                        crudFactory.deleteTodo(todo.id, reloadTodos);
+                        crudFactory
+                            .deleteTodo(todo.id)
+                            .then(reloadTodos);
                     });
                 };
 

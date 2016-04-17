@@ -25,10 +25,12 @@ angular
                 };
 
                 var reloadTodos = function(updatedId) {
-                    crudFactory.getTodos(function(todos) {
-                        ctrl.todos = todos;
-                        effectsFactory.scrollToSelector('#' + SELECTOR_CONSTANT.todoId + updatedId);
-                    });
+                    crudFactory
+                        .getTodos()
+                        .then(function (todos) {
+                            ctrl.todos = todos;
+                            effectsFactory.scrollToSelector('#' + SELECTOR_CONSTANT.todoId + updatedId);
+                        });
                 };
                 
                 ctrl.submitTodo = function() {
@@ -36,19 +38,23 @@ angular
                     
                     if(!ctrl.todo.id) {
                         // A new todo - POST it
-                        crudFactory.postTodo(ctrl.todo, function(id) {
-                            setEmptyVm();
-                            reloadTodos(id);
-                        });
+                        crudFactory
+                            .postTodo(ctrl.todo)
+                            .then(function (id) {
+                                setEmptyVm();
+                                reloadTodos(id);
+                            });
                     }
                     else {
                         // An existing todo, under edit - PUT it
-                        crudFactory.putTodo(ctrl.todo.id, ctrl.todo, function () {
-                            var id = ctrl.todo.id;
-                            setEmptyVm();
-                            crudFactory.setTodoIdUnderEdit(undefined);
-                            reloadTodos(id);
-                        });
+                        crudFactory
+                            .putTodo(ctrl.todo.id, ctrl.todo)
+                            .then(function () {
+                                var id = ctrl.todo.id;
+                                setEmptyVm();
+                                crudFactory.setTodoIdUnderEdit(undefined);
+                                reloadTodos(id);
+                            });
                     }
 
                 };

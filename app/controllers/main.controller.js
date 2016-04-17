@@ -8,8 +8,11 @@ angular
        mainCtrl.todos = [];
        mainCtrl.todosFilter = {};
        
-       crudFactory.getTodos(function (todos) {
-           mainCtrl.todos = todos;
-       });
+       crudFactory
+        .getTodos()
+        .then(function (todos) {
+            mainCtrl.todos = todos;
+        });
+
         
     });

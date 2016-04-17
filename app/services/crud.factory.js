@@ -10,32 +10,36 @@ angular
         var todoIdUnderEdit;
         
         
+        var onSuccess = function (response) {
+              return response.data;
+        };
+        
         var onError = function () {
             getSetErrorFactory.setError(true);
         };
 
-        factory.getTodos = function(successCb) {
-            apiFactory.getTodos()
-                .then(function (response) { successCb(response.data); })
-                .catch(onError);
+        factory.getTodos = function() {
+            return apiFactory.getTodos()
+                    .then(onSuccess)
+                    .catch(onError);
         };
         
-        factory.postTodo = function(todo, successCb) {
-            apiFactory.postTodo(todo)
-                .then(function (response) { successCb(response.data); })
-                .catch(onError);
+        factory.postTodo = function(todo) {
+            return apiFactory.postTodo(todo)
+                    .then(onSuccess)
+                    .catch(onError);
         };
         
-        factory.putTodo = function (id, todo, successCb) {
-            apiFactory.putTodo(id, todo)
-                .then(function (response) { successCb(response.data); })
-                .catch(onError);
+        factory.putTodo = function (id, todo) {
+            return apiFactory.putTodo(id, todo)
+                    .then(onSuccess)
+                    .catch(onError);
         };
         
-        factory.deleteTodo = function (id, successCb) {
-            apiFactory.deleteTodo(id)
-                .then(function (response) { successCb(response.data); })
-                .catch(onError);
+        factory.deleteTodo = function (id) {
+            return apiFactory.deleteTodo(id)
+                    .then(onSuccess)
+                    .catch(onError);
         };
         
         factory.setTodoIdUnderEdit = function (id) {
