@@ -62,7 +62,7 @@ describe("Main Controller sourounds the application", function () {
 
     it("gets its vm populated with some todos from the crud factory", function () {
         var mainCtrl = $controller('main', { crudFactory: crudFactoryMock });
-        $rootScope.$apply();
+        $rootScope.$apply(); // could also use $scope.$digest()
         expect(mainCtrl.todos.length).toEqual(2);
     });
 

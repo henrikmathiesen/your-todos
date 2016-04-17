@@ -50,7 +50,7 @@ describe("crud factory works as a layer between api factory and the rest of the 
             expect(getSetErrorFactory.setError).toHaveBeenCalledWith(true);
         });
         
-        $scope.$digest();
+        $scope.$digest(); // could also use $scope.$apply() / $rootScope.$apply()  
     });
 
     it("should have methods for setting and getting which todo id is under edit", function () {
