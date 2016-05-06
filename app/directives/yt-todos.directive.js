@@ -43,6 +43,31 @@ angular
                     effectsFactory.scrollTop();
                     effectsFactory.ytSectionExpandXs();
                 };
+
+                ctrl.compareDateFilter = function (property, compareDate) {
+
+                    return function (item) {
+                        
+                        if(!item[property] || !ctrl.todosFilter.date) { return true; }
+                        
+                        var rawFilterDate;
+                        var formatedFilterDate;
+                        var rawItemDate;
+                        var formatedItemDate;
+                        
+                        rawFilterDate = new Date(ctrl.todosFilter.date);
+                        formatedFilterDate = $filter('date')(rawFilterDate, 'yyyy-MM-dd');
+                        
+                        rawItemDate = new Date(item[property]);
+                        formatedItemDate = $filter('date')(rawItemDate, 'yyyy-MM-dd');
+                        
+                        if(formatedFilterDate == formatedItemDate) {
+                            return true;
+                        }
+                        
+                        return false;
+                    };
+                };
             },
             controllerAs: 'ctrl',
             bindToController: {

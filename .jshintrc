@@ -1,5 +1,6 @@
 {
   "undef": true,
   "unused": false,
+  "sub": true,
   "predef": [ "angular", "console", "require", "module", "__dirname", "global" ]
 }
