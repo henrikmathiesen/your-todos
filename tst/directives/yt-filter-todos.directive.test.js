@@ -49,6 +49,19 @@ describe("yt-filter-todos.directive should display controls for user to filter t
         expect(options.eq(3).val()).toBe(labels.project);
     });
 
+    it("should have one input field for text search", function () {
+        var textSearchInput = jQelement.find('input[ng-model="ctrl.todosFilter.text"]');
+        expect(textSearchInput.length).toBe(1);
+        expect(textSearchInput.attr('type')).toBe('text');
+    });
+
+    it("should have one date input for date search", function () {
+        var dateSearchInput = jQelement.find('input[ng-model="ctrl.todosFilter.date"]');
+        expect(dateSearchInput.length).toBe(1);
+        expect(dateSearchInput.attr('type')).toBe('date');
+    });
+
+
 });
 
 //
