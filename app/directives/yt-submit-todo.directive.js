@@ -8,7 +8,7 @@ angular
             replace: true,
             scope: {},
             templateUrl: 'yt-add-edit-todo.template.html',
-            controller: function($scope, crudFactory, effectsFactory, SELECTOR_CONSTANT) {
+            controller: function(crudFactory, effectsFactory, SELECTOR_CONSTANT) {
                 var ctrl = this;
 
                 // Gets set to empty VM: init, after post to clear form, or user clicks cancel button
