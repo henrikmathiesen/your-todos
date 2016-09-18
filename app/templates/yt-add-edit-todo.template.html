@@ -5,16 +5,12 @@
                 ng-model="ctrl.todo.text"></textarea>
         </div>
         <div class="col-sm-5">
-            <!--<input class="yt-form-input" type="datetime-local" ng-required="true" name="todoDate" ng-model="ctrl.todo.date" />-->
-            
-
             <div class="dropdown">
                 <a class="dropdown-toggle yt-display-block" id="datetimepicker-dropdown" role="button" data-toggle="dropdown" data-target="#" href="#">When to do it</a>
                 <ul class="dropdown-menu" role="menu">
                     <datetimepicker ng-required="true" name="todoDate" ng-model="ctrl.todo.date" data-datetimepicker-config="{ dropdownSelector: '#datetimepicker-dropdown' }"></datetimepicker>
                 </ul>
             </div>
-
         </div>
     </div>
     <div class="row">
