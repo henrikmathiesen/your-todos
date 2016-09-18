@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-sm-3">
+        <select class="yt-form-input" ng-model="ctrl.todosFilter.label">
+                            <option value="" selected="true">All</option>
+                            <option value="{{ctrl.LABELS.work}}">Work</option>
+                            <option value="{{ctrl.LABELS.joy}}">Joy</option>
+                            <option value="{{ctrl.LABELS.project}}">Project</option>
+                        </select>
+    </div>
+    <div class="col-sm-5">
+        <input class="yt-form-input" type="text" ng-model="ctrl.todosFilter.text" placeholder="Search ..." />
+    </div>
+    <div class="col-sm-4">
+        <div class="dropdown">
+            <a class="dropdown-toggle yt-display-block" id="datetimepicker-dropdown-filter" role="button" data-toggle="dropdown" data-target="#" href="#">When?</a>
+            <ul class="dropdown-menu" role="menu">
+                <datetimepicker ng-model="ctrl.todosFilter.date" data-datetimepicker-config="{ dropdownSelector: '#datetimepicker-dropdown-filter' }"></datetimepicker>
+            </ul>
+        </div>
+    </div>
+</div>
