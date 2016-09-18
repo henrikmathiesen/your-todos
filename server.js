@@ -13,7 +13,6 @@ app.use(compress());
 app.use(express.static(__dirname + '/Views/start'));
 app.use('/images', express.static(__dirname + '/images'));
 app.use('/bower_components/font-awesome/fonts', express.static(__dirname + '/bower_components/font-awesome/fonts'));
-app.use('/app/templates', express.static(__dirname + '/app/templates'));
 app.use('/bld', express.static(__dirname + '/bld'));
 
 db.instance.on('load', function () {
