@@ -40,6 +40,7 @@ var jsServerSrc = [
 
 var jsLibSrc = [
     './bower_components/jquery/dist/jquery.js',
+    './bower_components/bootstrap/js/dropdown.js',
     './bower_components/fastclick/lib/fastclick.js',
     './node_modules/moment/moment.js',
     './bower_components/angular/angular.js',

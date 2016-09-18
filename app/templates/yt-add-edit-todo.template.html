@@ -1,41 +1,37 @@
 <form class="yt-add-edit-todo-form" novalidate name="ctrl.addEditTodoForm" ng-submit="ctrl.submitTodo()">
     <div class="row">
         <div class="col-sm-7">
-            <textarea class="yt-form-input" 
-                      ng-required="true" 
-                      name="todoText" 
-                      placeholder="What to do, when to do it and apply 1 of 3 labels" 
-                      ng-model="ctrl.todo.text"></textarea>
+            <textarea class="yt-form-input" ng-required="true" name="todoText" placeholder="What to do, when to do it and apply 1 of 3 labels"
+                ng-model="ctrl.todo.text"></textarea>
         </div>
         <div class="col-sm-5">
             <!--<input class="yt-form-input" type="datetime-local" ng-required="true" name="todoDate" ng-model="ctrl.todo.date" />-->
-            <datetimepicker ng-required="true" name="todoDate" ng-model="ctrl.todo.date"></datetimepicker>
+            
+
+            <div class="dropdown">
+                <a class="dropdown-toggle yt-display-block" id="datetimepicker-dropdown" role="button" data-toggle="dropdown" data-target="#" href="#">When to do it</a>
+                <ul class="dropdown-menu" role="menu">
+                    <datetimepicker ng-required="true" name="todoDate" ng-model="ctrl.todo.date" data-datetimepicker-config="{ dropdownSelector: '#datetimepicker-dropdown' }"></datetimepicker>
+                </ul>
+            </div>
+
         </div>
     </div>
     <div class="row">
         <div class="col-sm-2">
-            <span class="yt-button-work--block-tight" 
-                ng-class="{'is-active': ctrl.todo.label === 'work'}" 
-                ng-click="ctrl.todo.label = 'work'">Work</span>
+            <span class="yt-button-work--block-tight" ng-class="{'is-active': ctrl.todo.label === 'work'}" ng-click="ctrl.todo.label = 'work'">Work</span>
         </div>
         <div class="col-sm-2">
-            <span class="yt-button-joy--block-tight" 
-                ng-class="{'is-active': ctrl.todo.label === 'joy'}" 
-                ng-click="ctrl.todo.label = 'joy'">Joy</span>
+            <span class="yt-button-joy--block-tight" ng-class="{'is-active': ctrl.todo.label === 'joy'}" ng-click="ctrl.todo.label = 'joy'">Joy</span>
         </div>
         <div class="col-sm-2">
-            <span class="yt-button-project--block-tight" 
-                ng-class="{'is-active': ctrl.todo.label === 'project'}" 
-                ng-click="ctrl.todo.label = 'project'">Project</span>
+            <span class="yt-button-project--block-tight" ng-class="{'is-active': ctrl.todo.label === 'project'}" ng-click="ctrl.todo.label = 'project'">Project</span>
         </div>
         <div class="col-sm-3 yt-stacked-col-extra-y-gutter">
             <span class="yt-button-noway--block" ng-click="ctrl.cancelTodo()">Noway</span>
         </div>
         <div class="col-sm-3">
-            <button 
-                ng-disabled="ctrl.addEditTodoForm.$invalid || !ctrl.todo.label"
-                class="yt-button-okey--block"
-                ng-class="{'is-disabled':  (ctrl.addEditTodoForm.$invalid || !ctrl.todo.label)}">Okey</button>
+            <button ng-disabled="ctrl.addEditTodoForm.$invalid || !ctrl.todo.label" class="yt-button-okey--block" ng-class="{'is-disabled':  (ctrl.addEditTodoForm.$invalid || !ctrl.todo.label)}">Okey</button>
         </div>
     </div>
 </form>
