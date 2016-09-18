@@ -178,7 +178,7 @@ gulp.task('default', ['clean-bld', 'js-server', 'js-lib', 'finalize-template-cac
         .pipe(gulp.dest('./Views/start/'));
 });
 
-gulp.task('test', ['template-cache', 'js-app'], function (done) {
+gulp.task('test', ['default'], function (done) {
     new Server({
         configFile: __dirname + '/karma.conf.js',
         singleRun: true,

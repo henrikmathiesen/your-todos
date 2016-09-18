@@ -56,9 +56,8 @@ describe("yt-filter-todos.directive should display controls for user to filter t
     });
 
     it("should have one date input for date search", function () {
-        var dateSearchInput = jQelement.find('input[ng-model="ctrl.todosFilter.date"]');
+        var dateSearchInput = jQelement.find('[ng-model="ctrl.todosFilter.date"]');
         expect(dateSearchInput.length).toBe(1);
-        expect(dateSearchInput.attr('type')).toBe('date');
     });
 
 

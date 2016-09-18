@@ -6,9 +6,11 @@ module.exports = function (config) {
         frameworks: ['jasmine'],
         files: [
             './bower_components/jquery/dist/jquery.js',
+            './node_modules/moment/moment.js',
             './bower_components/angular/angular.js',
+            './node_modules/angular-bootstrap-datetimepicker/src/js/datetimepicker.js',
             './bower_components/angular-mocks/angular-mocks.js',
-            './bld/templates.js',
+            './bld/app-templates.js',
             './bld/app.js',
             './tst/**/*.js'
         ],
