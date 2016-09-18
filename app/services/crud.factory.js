@@ -46,7 +46,7 @@ angular
             todoIdUnderEdit = id;
         };
         
-        factory.getTodoIdUnderEdit = function (id) {
+        factory.getTodoIdUnderEdit = function () {
             return todoIdUnderEdit;
         };
         
