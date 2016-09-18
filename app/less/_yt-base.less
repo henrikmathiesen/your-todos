@@ -45,7 +45,7 @@ p {
     opacity: 0.8;
 }
 
-a {
+a, .yt-text-link {
     color: @yt-color-black;
     text-decoration: none;
     border-bottom: 1px solid @yt-color-light-blue;
@@ -53,6 +53,10 @@ a {
     &:hover {
         border-bottom-width: 2px;
     }
+}
+
+.yt-text-link.danger {
+    border-bottom: 1px solid @yt-color-red;
 }
 
 [ng-click], [data-ng-click] {
