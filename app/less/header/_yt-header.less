@@ -13,6 +13,8 @@
     @media (min-width: @screen-md-min) { 
         height: @yt-sticky-header-height-md-up;
     }
+
+    overflow: hidden;
     
     &__logo {
         margin:0;
@@ -21,13 +23,10 @@
         font-family: 'The Girl Next Door', cursive;
         font-weight: 400;
         
-        height: @yt-sticky-header-height;
-        
         font-size: 55px;
         line-height: 80px;
         
         @media (min-width: @screen-md-min) {
-            height: @yt-sticky-header-height-md-up;
             font-size: 92px;
             line-height: 136px;
         }

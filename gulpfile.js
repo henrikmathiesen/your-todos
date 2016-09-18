@@ -94,7 +94,7 @@ gulp.task('js-lib', function () {
 gulp.task('template-cache-datetimepicker', function () {
     return gulp
         .src(templateSrcDatetimepicker)
-        .pipe(templateCache('temp-templates-datetimepicker.js', { module: 'ui.bootstrap.datetimepicker', standalone: true }))
+        .pipe(templateCache('temp-templates-datetimepicker.js', { module: 'ui.bootstrap.datetimepicker', root: 'templates/', standalone: false }))
         .pipe(gulp.dest(bldFolder));
 });
 
