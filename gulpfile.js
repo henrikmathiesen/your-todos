@@ -41,7 +41,9 @@ var jsServerSrc = [
 var jsLibSrc = [
     './bower_components/jquery/dist/jquery.js',
     './bower_components/fastclick/lib/fastclick.js',
-    './bower_components/angular/angular.js'
+    './node_modules/moment/moment.js',
+    './bower_components/angular/angular.js',
+    './node_modules/angular-bootstrap-datetimepicker/src/js/datetimepicker.js'
 ];
 
 var jsAppSrc = [
@@ -50,6 +52,7 @@ var jsAppSrc = [
 ];
 
 var templateSrc = './app/templates/**/*.html';
+var templateSrcDatetimepicker = './app/templates-datetimepicker/datetimepicker.html';
 
 var lessSrc = './app/less/app.less';
 var lessSrcWatch = './app/less/**/*.less';
@@ -75,23 +78,47 @@ gulp.task('js-lib', function () {
     return gulp
         .src(jsLibSrc)
         .pipe(gulpif(!isProduction, sourceMaps.init()))
-        
+
         .pipe(concatJs('lib.js'))
-        
+
         .pipe(gulpif(isProduction, uglifyJs()))
         .pipe(gulpif(isProduction, rev()))
-        
+
         .pipe(gulpif(!isProduction, sourceMaps.write()))
+        .pipe(gulp.dest(bldFolder));
+});
+
+//
+// Template caching
+
+gulp.task('template-cache-datetimepicker', function () {
+    return gulp
+        .src(templateSrcDatetimepicker)
+        .pipe(templateCache('temp-templates-datetimepicker.js', { module: 'ui.bootstrap.datetimepicker', standalone: true }))
         .pipe(gulp.dest(bldFolder));
 });
 
 gulp.task('template-cache', function () {
     return gulp
         .src(templateSrc)
-        .pipe(templateCache({ module: 'templatecache', standalone: true }))
+        .pipe(templateCache('temp-templates-app.js', { module: 'templatecache', standalone: true }))
+        .pipe(gulp.dest(bldFolder));
+});
+
+gulp.task('bundle-template-caches', ['template-cache-datetimepicker', 'template-cache'], function(){
+    return gulp
+        .src('./bld/temp-templates*.js')
+        .pipe(concatJs('app-templates.js'))
         .pipe(gulpif(isProduction, rev()))
         .pipe(gulp.dest(bldFolder));
 });
+
+gulp.task('finalize-template-cache', ['bundle-template-caches'], function () {
+    del.sync('./bld/temp-templates*.js');
+});
+
+//
+//
 
 gulp.task('js-app', function () {
     return gulp
@@ -99,16 +126,16 @@ gulp.task('js-app', function () {
         .pipe(jshint())
         .pipe(jshint.reporter(stylish))
         .pipe(jshint.reporter('fail'))
-        
+
         .pipe(gulpif(!isProduction, sourceMaps.init()))
-        
+
         .pipe(concatJs('app.js'))
         .pipe(ngAnnotate())
-        
+
         .pipe(gulpif(isProduction, stripDebug()))
         .pipe(gulpif(isProduction, uglifyJs()))
         .pipe(gulpif(isProduction, rev()))
-        
+
         .pipe(gulpif(!isProduction, sourceMaps.write()))
         .pipe(gulp.dest(bldFolder));
 });
@@ -117,13 +144,13 @@ gulp.task('less', function () {
     return gulp
         .src(lessSrc)
         .pipe(gulpif(!isProduction, sourceMaps.init()))
-        
+
         .pipe(less())
         .pipe(autoprefix({ browsers: ['last 3 versions'] }))
-        
+
         .pipe(gulpif(isProduction, minifyCss()))
         .pipe(gulpif(isProduction, rev()))
-        
+
         .pipe(gulpif(!isProduction, sourceMaps.write()))
         .pipe(gulp.dest(bldFolder));
 });
@@ -131,18 +158,18 @@ gulp.task('less', function () {
 //
 // Main Tasks
 
-gulp.task('default', ['clean-bld', 'js-server', 'js-lib', 'template-cache', 'js-app', 'less'], function () {
+gulp.task('default', ['clean-bld', 'js-server', 'js-lib', 'finalize-template-cache', 'js-app', 'less'], function () {
     if (!isProduction && !resetInject) { return; }
-    
+
     // If in production or reset from revisioned production files to debug mode, then inject links to html file
-    
+
     var sourcesToInject = gulp.src([
         bldFolder + '/lib*.js',
-        bldFolder + '/templates*.js',
+        bldFolder + '/app-templates.js',
         bldFolder + '/app*.js',
         bldFolder + '/app*.css'
     ], { read: false });
-    
+
     gulp
         .src('./Views/start/index.html')
         .pipe(inject(sourcesToInject))
@@ -159,7 +186,7 @@ gulp.task('test', ['template-cache', 'js-app'], function (done) {
 
 gulp.task('watch', ['default'], function () {
     gulp.watch(jsServerSrc, ['js-server']);
-    gulp.watch(templateSrc, ['template-cache']);
+    gulp.watch(templateSrc, ['finalize-template-cache']);
     gulp.watch(jsAppSrc, ['js-app']);
     gulp.watch(lessSrcWatch, ['less']);
 });
