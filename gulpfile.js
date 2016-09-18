@@ -13,6 +13,7 @@ var ngAnnotate = require('gulp-ng-annotate');
 var templateCache = require('gulp-angular-templatecache');
 var stripDebug = require('gulp-strip-debug');
 var uglifyJs = require('gulp-uglify');
+var saveLicense = require('uglify-save-license');
 
 var less = require('gulp-less');
 var autoprefix = require('gulp-autoprefixer');
@@ -82,7 +83,7 @@ gulp.task('js-lib', function () {
 
         .pipe(concatJs('lib.js'))
 
-        .pipe(gulpif(isProduction, uglifyJs()))
+        .pipe(gulpif(isProduction, uglifyJs({ preserveComments: saveLicense })))
         .pipe(gulpif(isProduction, rev()))
 
         .pipe(gulpif(!isProduction, sourceMaps.write()))
