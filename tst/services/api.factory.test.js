@@ -25,7 +25,7 @@ describe("api factory makes ajax calls to a node server for CRUD operations", fu
     });
 
     it("should expose a postTodo method that makes an ajax call posting a todo to back end, back end returns the id of posted todo", function () {
-        $httpBackend.when('POST', '/api/todo').respond(200, 1);
+        $httpBackend.when('POST', '/api/todo').respond(201, 1);
 
         apiFactory.postTodo({ text: "To do today ..." }).then(function (response) {
             expect(response.data).toBe(1);
