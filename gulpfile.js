@@ -22,6 +22,7 @@ var minifyCss = require('gulp-minify-css');
 var sourceMaps = require('gulp-sourcemaps');
 var rev = require('gulp-rev');
 var inject = require('gulp-inject');
+var size = require('gulp-size');
 
 var Server = require('karma').Server;
 
@@ -83,7 +84,9 @@ gulp.task('js-lib', function () {
 
         .pipe(concatJs('lib.js'))
 
+        .pipe(gulpif(isProduction, size({ title: "js-lib unmin" })))
         .pipe(gulpif(isProduction, uglifyJs({ preserveComments: saveLicense })))
+        .pipe(gulpif(isProduction, size({ title: "js-lib min" })))
         .pipe(gulpif(isProduction, rev()))
 
         .pipe(gulpif(!isProduction, sourceMaps.write()))
@@ -107,7 +110,7 @@ gulp.task('template-cache', function () {
         .pipe(gulp.dest(bldFolder));
 });
 
-gulp.task('bundle-template-caches', ['template-cache-datetimepicker', 'template-cache'], function(){
+gulp.task('bundle-template-caches', ['template-cache-datetimepicker', 'template-cache'], function () {
     return gulp
         .src('./bld/temp-templates*.js')
         .pipe(concatJs('app-templates.js'))
@@ -134,8 +137,10 @@ gulp.task('js-app', function () {
         .pipe(concatJs('app.js'))
         .pipe(ngAnnotate())
 
+        .pipe(gulpif(isProduction, size({ title: "js-app unmin" })))
         .pipe(gulpif(isProduction, stripDebug()))
         .pipe(gulpif(isProduction, uglifyJs()))
+        .pipe(gulpif(isProduction, size({ title: "js-app min" })))
         .pipe(gulpif(isProduction, rev()))
 
         .pipe(gulpif(!isProduction, sourceMaps.write()))
@@ -150,7 +155,9 @@ gulp.task('less', function () {
         .pipe(less())
         .pipe(autoprefix({ browsers: ['last 3 versions'] }))
 
+        .pipe(gulpif(isProduction, size({ title: "css-app unmin" })))
         .pipe(gulpif(isProduction, minifyCss()))
+        .pipe(gulpif(isProduction, size({ title: "css-app min" })))
         .pipe(gulpif(isProduction, rev()))
 
         .pipe(gulpif(!isProduction, sourceMaps.write()))
