@@ -138,7 +138,7 @@ gulp.task('js-app', function () {
         .pipe(ngAnnotate())
 
         .pipe(gulpif(isProduction, size({ title: "js-app unmin" })))
-        .pipe(gulpif(isProduction, stripDebug()))
+        .pipe(gulpif(isProduction, stripDebug())) // strips console. log, info, warn, error, debug
         .pipe(gulpif(isProduction, uglifyJs()))
         .pipe(gulpif(isProduction, size({ title: "js-app min" })))
         .pipe(gulpif(isProduction, rev()))
