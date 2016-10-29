@@ -174,7 +174,7 @@ gulp.task('default', ['clean-bld', 'js-server', 'js-lib', 'finalize-template-cac
 
     var sourcesToInject = gulp.src([
         bldFolder + '/lib*.js',
-        bldFolder + '/app-templates.js',
+        bldFolder + '/app-templates*.js',
         bldFolder + '/app*.js',
         bldFolder + '/app*.css'
     ], { read: false });
