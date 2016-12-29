@@ -1,5 +1,5 @@
 {
-  "name": "yourtodos",
+  "name": "your-todos",
   "version": "1.0.0",
   "description": "A todo list app with Express and localDB, built with Angular and small parts of bootstrap",
   "main": "server.js",
@@ -8,46 +8,46 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/henrikmathiesen/yourTodos.git"
+    "url": "git+https://github.com/henrikmathiesen/your-todos.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/henrikmathiesen/yourTodos/issues"
+    "url": "https://github.com/henrikmathiesen/your-todos/issues"
   },
-  "homepage": "https://github.com/henrikmathiesen/yourTodos#readme",
+  "homepage": "https://github.com/henrikmathiesen/your-todos#readme",
   "devDependencies": {
-    "del": "^2.2.0",
-    "gulp": "^3.9.1",
-    "gulp-angular-templatecache": "^1.8.0",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-concat": "^2.6.0",
-    "gulp-if": "^2.0.0",
-    "gulp-inject": "^3.0.0",
-    "gulp-jshint": "^2.0.0",
-    "gulp-less": "^3.0.5",
-    "gulp-minify-css": "^1.2.4",
-    "gulp-ng-annotate": "^2.0.0",
-    "gulp-rev": "^7.0.0",
-    "gulp-size": "^2.1.0",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-strip-debug": "^1.1.0",
-    "gulp-uglify": "^1.5.3",
-    "jasmine": "^2.4.1",
-    "jshint": "^2.9.1",
-    "jshint-stylish": "^2.1.0",
-    "karma": "^0.13.22",
-    "karma-jasmine": "^0.3.8",
-    "karma-phantomjs-launcher": "^1.0.0",
-    "phantomjs-prebuilt": "^2.1.7",
-    "uglify-save-license": "^0.4.1",
-    "yargs": "^4.3.2"
+    "del": "2.2.0",
+    "gulp": "3.9.1",
+    "gulp-angular-templatecache": "1.8.0",
+    "gulp-autoprefixer": "3.1.0",
+    "gulp-concat": "2.6.0",
+    "gulp-if": "2.0.0",
+    "gulp-inject": "3.0.0",
+    "gulp-jshint": "2.0.0",
+    "gulp-less": "3.0.5",
+    "gulp-minify-css": "1.2.4",
+    "gulp-ng-annotate": "2.0.0",
+    "gulp-rev": "7.0.0",
+    "gulp-size": "2.1.0",
+    "gulp-sourcemaps": "1.6.0",
+    "gulp-strip-debug": "1.1.0",
+    "gulp-uglify": "1.5.3",
+    "jasmine": "2.4.1",
+    "jshint": "2.9.1",
+    "jshint-stylish": "2.1.0",
+    "karma": "0.13.22",
+    "karma-jasmine": "0.3.8",
+    "karma-phantomjs-launcher": "1.0.0",
+    "phantomjs-prebuilt": "2.1.7",
+    "uglify-save-license": "0.4.1",
+    "yargs": "4.3.2"
   },
   "dependencies": {
-    "angular-bootstrap-datetimepicker": "^1.1.2",
-    "body-parser": "^1.15.0",
-    "compression": "^1.6.1",
-    "dirty": "^1.0.0",
-    "express": "^4.13.4"
+    "angular-bootstrap-datetimepicker": "1.1.2",
+    "body-parser": "1.15.0",
+    "compression": "1.6.1",
+    "dirty": "1.0.0",
+    "express": "4.13.4"
   }
 }
