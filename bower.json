@@ -14,11 +14,11 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "^1.5.2",
-    "jquery": "^2.2.2",
-    "bootstrap": "^3.3.6",
-    "fastclick": "^1.0.6",
+    "angular": "1.5.2",
+    "jquery": "2.2.2",
+    "bootstrap": "3.3.6",
+    "fastclick": "1.0.6",
     "font-awesome": "fontawesome#^4.5.0",
-    "angular-mocks": "^1.5.3"
+    "angular-mocks": "1.5.3"
   }
 }
