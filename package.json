@@ -4,7 +4,8 @@
   "description": "A todo list app with Express and localDB, built with Angular and small parts of bootstrap",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "tsd install"
   },
   "repository": {
     "type": "git",
