@@ -7,6 +7,10 @@ var db = require('../db');
 
 router.use(bodyParser.json());
 
+// OBS
+// res.end() not needed when using res.json
+// http://expressjs.com/en/4x/api.html#res.end
+
 router.get('/api/todos', function (req, res) {
     var todos = db.getTodos();
     
